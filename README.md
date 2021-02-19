@@ -1,6 +1,6 @@
-this is a readme. they are the __first place__ people look for info on what to do. 
+This is a readme. It is the __first place__ people look for info on what to do. 
 
-you can create lists of e.g. contributors
+You can create lists of e.g. contributors
 - [Lee Boon Giin (Bryan)](contributors/bryanlbg.md)
 
 
@@ -13,4 +13,4 @@ you can create lists of e.g. contributors
 ### Source Code
 
 ### Enable Version Control
-- added a git project.
+- Added a git project.
