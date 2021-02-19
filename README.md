@@ -1,3 +1,16 @@
-# COMP1035-2021-Repo-Template
+this is a readme. they are the __first place__ people look for info on what to do. 
 
-Template of git repository for COMP1035 Software Engineering
+you can create lists of e.g. contributors
+- [Lee Boon Giin (Bryan)](contributors/bryanlbg.md)
+
+
+### Analyses from Labs
+
+
+### Assessment Deliverables
+
+
+### Source Code
+
+### Enable Version Control
+- added a git project.
