@@ -5,7 +5,7 @@ You can create lists of e.g. contributors
 
 
 ### Analyses from Labs
-
+- Today lecture is Git Projects!
 
 ### Assessment Deliverables
 
