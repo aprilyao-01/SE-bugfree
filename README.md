@@ -8,7 +8,7 @@ You can create lists of e.g. contributors
 - Today lecture is Git Projects!
 
 ### Assessment Deliverables
-
+- Today lab is also Git Projects!
 
 ### Source Code
 
