@@ -10,4 +10,4 @@ Here's my basic information.
 Wish you a happy day!! :D
 
 ![alt text][my baby]
-[my baby]: file:///Users/weird/Desktop/bugfree/images/WechatIMG496.jpeg
+[my baby]: file:///Users/weird/Desktop/bugfree/images/baby.jpeg
