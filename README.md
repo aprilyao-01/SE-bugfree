@@ -4,7 +4,7 @@
 - [Lee Boon Giin (Bryan)](contributors/bryanlbg.md)
 ### Team Member
 - [Jing ZHANG (Ankie)](contributors/JingZHANG.md)
-
+- [Jiachen Zhang (Zack)](contributors/JiachenZhang.md)
 
 ### Analyses from Labs
 - Today lecture is Git Projects!
