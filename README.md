@@ -5,6 +5,7 @@
 ### Team Member
 - [Jing ZHANG (Ankie)](contributors/JingZHANG.md)
 - [Jiachen Zhang (Zack)](contributors/JiachenZhang.md)
+- [Xingyan QU (Amanda)](contributors/Weird.md)
 
 ### Analyses from Labs
 - Today lecture is Git Projects!
