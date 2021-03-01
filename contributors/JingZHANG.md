@@ -6,9 +6,9 @@ Hello! My name is Jing and you can call me Ankie! Nice to see u :blush:
 * __Hometown__: Xiamen, Fujian
 * __WeChat__: ankieZJkd
 * __Favourite__: 
-    *Book: A Song of Ice and Fire
-    *Artist: BTS
-    *Music: Boy With Luv
-    *Movie: Flipped
+    * Book: A Song of Ice and Fire
+    * Artist: BTS
+    * Music: Boy With Luv
+    * Movie: Flipped
 ****
 ![alt text](../images/profit.jpg "Jing")
