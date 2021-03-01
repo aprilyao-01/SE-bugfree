@@ -4,8 +4,8 @@
 Anyway, welcome to my page. 
 Here's my basic information.
 
-..* Name : **Xingyan Qu**
-..* Email : <**scyxq1@nottingham.edu.cn**>
+··* Name : **Xingyan Qu**
+··* Email : <**scyxq1@nottingham.edu.cn**>
 
 Wish you a happy day!! :D
 
