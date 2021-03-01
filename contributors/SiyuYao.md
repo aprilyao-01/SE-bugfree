@@ -8,6 +8,6 @@
 
 ## More information about me ‎(｡◠‿◠｡)
 * :arrow_down: A funny pic named "Dwaekki" which I like of late
-![alt text](../images/Dwaekki.jpg "Dwaekki")
-* :dvd: The vedio about Dwaekki <a href="https://youtu.be/e07iRgMQHxc" target="_blank"><img src ="../images/skzoo.jpg"width="40px" height="50px" /></a>
+![alt text](../images/Dwaekki.JPG "Dwaekki")
+* :dvd: The vedio about Dwaekki <a href="https://youtu.be/e07iRgMQHxc" target="_blank"><img src ="../images/skzoo.JPG"width="40px" height="50px" /></a>
 
