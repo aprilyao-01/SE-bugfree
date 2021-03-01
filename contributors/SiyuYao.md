@@ -8,7 +8,7 @@
 
 ## More information about me ‎(｡◠‿◠｡)
 * :arrow_down: A funny pic named "Dwaekki" which I like of late <br>
-<img src = "../images/Dwaekki.JPG" width="50%" alt="Dwaekki" />
+<img src = "../images/Dwaekki.JPG" width="35%" alt="Dwaekki" /> <br>
 * :dvd: The vedio about Dwaekki, click the screen shot for youtube vedio. <br>
 <a href="https://youtu.be/e07iRgMQHxc" target="_blank"><img src = "../images/skzoo.JPG" width="50%" alt="screen shot"/></a>
 
