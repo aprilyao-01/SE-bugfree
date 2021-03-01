@@ -1,7 +1,9 @@
-This is a readme. It is the __first place__ people look for info on what to do. 
-
-You can create lists of e.g. contributors
+# Hello! Here is BUGFREE
+## Contributors
+### Module Convenor
 - [Lee Boon Giin (Bryan)](contributors/bryanlbg.md)
+### Team Member
+- [Jing ZHANG (Ankie)](contributors/JingZHANG.md)
 
 
 ### Analyses from Labs
