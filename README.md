@@ -8,15 +8,14 @@
 - [Jiachen Zhang (Zack)](contributors/JiachenZhang.md)
 - [Xingyan QU (Amanda)](contributors/Weird.md)
 - [Wangji Wei (Eagle)](contributors/WangjiWei.md)
-- [Siyu YAO (Eagle)](contributors/SiyuYao.md)
+- [Siyu YAO (April)](contributors/SiyuYao.md)
 
 ### Analyses from Labs
 - [Lab 02 —— Case Diagram](docs/Lab02.md)
 
 ### Assessment Deliverables
-- Today lab is also Git Projects!
 
 ### Source Code
 
 ### Enable Version Control
-- Added a git project.
+
