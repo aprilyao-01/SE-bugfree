@@ -11,7 +11,7 @@
 - [Siyu YAO (April)](contributors/SiyuYao.md)
 
 ### Analyses from Labs
-- [Lab 02 —— Case Diagram](docs/Lab02.md)
+- [Lab 02 —— Use Case Diagram](docs/Lab02.md)
 
 ### Assessment Deliverables
 
