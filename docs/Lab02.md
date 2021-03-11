@@ -7,5 +7,5 @@ However, there are many cases, where additional approval is required. First, in 
 
  After gain all needed approvals, students could submit form to the student service, thus we got the use cases named **submit form**. Then the student service will colloect the form and check students' chocice and perhaps additional approval. Thus we got two use cases named checked **collect form** and **check chocies and perhaps additional approval**. And if a student's choices add up to 120 credits, evenly with a 60-60 credit split each semester, and all from their school and at the right year level or get additional approvals, these choices will be approved by student services.
 
-# Lab02 Cases Diagram
+# Lab02 Use Case Diagram
 ![alt text](../docs/Lab02.png "Case Diagram")
