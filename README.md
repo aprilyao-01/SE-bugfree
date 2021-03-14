@@ -13,9 +13,12 @@
 ### Analyses from Labs
 - [Lab 02 —— Use Case Diagram](docs/Lab02.md)
 
+
 ### Assessment Deliverables
 
 ### Source Code
 
 ### Enable Version Control
 
+### Version History Log
+- [version history log](docs/VersionHistoryLog.md)
