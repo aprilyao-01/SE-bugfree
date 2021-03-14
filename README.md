@@ -12,6 +12,7 @@
 
 ### Analyses from Labs
 - [Lab 02 —— Use Case Diagram](docs/Lab02.md)
+- [Lab 03 —— Activity Diagram & Sequence Diagram](docs/Lab03.md)
 
 
 ### Assessment Deliverables
