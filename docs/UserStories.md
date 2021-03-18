@@ -14,7 +14,7 @@ As a *client*, I want to create a standard amount that is ‘set aside’ for e.
 
 As a *customer*, I want to set an ‘average’ or ‘usual cost’ for the monthly variable payments that is the same every month and update the spreadsheet with an exact amount, so that I use spreadsheet to see a total of how much is exactly fixed every month for bills and see which categories are schedules to go out but are variable (e.g., phone bill). 
 
-As a customer, I want to copy every expenditure into a separate sheet, give it a date and categorize it and I want to categorize a shop the first time when it comes up and change the default categories for a transaction from a recognized shop at any time so that I can see a total for the money spent on different categories and types. 
+As a *customer*, I want to copy every expenditure into a separate sheet, give it a date and categorize it and I want to categorize a shop the first time when it comes up and change the default categories for a transaction from a recognized shop at any time so that I can see a total for the money spent on different categories and types. 
 
 As a *multi-account-user*, I want to see the information the same as the single-account user and both see the summary calculated across all accounts and the summary for each individual account and want to check whether there is enough money left in one specific account so that I can manage my accounts better.
 
