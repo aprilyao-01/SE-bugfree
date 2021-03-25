@@ -17,6 +17,7 @@
 
 ### Assessment Deliverables
 - [Coursework 01](docs/Coursework1.md)
+- [Coursework 02](docs/Coursework2.md)
 ### Source Code
 
 ### Enable Version Control
