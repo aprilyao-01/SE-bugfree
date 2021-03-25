@@ -12,6 +12,6 @@ We have three scnarios to express three different situations.
 - Scnarios can be used to more detailed analysis of what functions need to be used in the construction of software, and more efficient communication in the subsequent coding
 
 ## Our works
--[Scenario1](docs/Scenario1.md)
--[Scenario2](docs/Scenario2.md)
--[Scenario3](docs/Scenario3.md)
+- [Scenario1](docs/Scenario1.md) 
+- [Scenario2](docs/Scenario2.md) 
+- [Scenario3](docs/Scenario3.md) 
