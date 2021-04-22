@@ -13,6 +13,10 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class BoCCategoryTest {
 
+//these two below defined by xingyan Qu
+	private static BigDecimal budget;
+	private static BigDecimal newSpend;
+//here below defined by siyu Yao
 	BoCCategory category;
 	BoCCategory category2;
 	private static BigDecimal bd;
@@ -37,7 +41,7 @@ class BoCCategoryTest {
 	public void tearDown() {
 		category = null;
 	}
-	 
+//siyu Yao	 
 	@Test
 	void testDefultConstructor() {
 		assertNotNull(category);
@@ -102,5 +106,106 @@ class BoCCategoryTest {
 			assertEquals(expect2,category.toString());
 		}
 	}
+//Xingyan Qu
+	//4
+	@ParameterizedTest
+	@CsvSource({"0.00", "-597.03","2220.00"})
+    void testCategoryBudget(BigDecimal budget) {
+		BoCCategory second = new BoCCategory();
+		second.setCategoryBudget(budget);
+		
+		if(budget.compareTo(new BigDecimal("0.00")) == 1) {
+			
+			assertEquals(budget, second.CategoryBudget());
+			
+		}else
+		{
+			assertEquals(new BigDecimal("0.00"), second.CategoryBudget());
+		}
+	}
+	//5
+	@Test
+	public void testCategorySpend() {
+		BoCCategory fourth = new BoCCategory();
+		
+		//set budget
+		budget = new BigDecimal("3000.00");
+		fourth.setCategoryBudget(budget);
+		//set a new spend
+		newSpend = new BigDecimal("234.00");
+		fourth.addExpense(newSpend);
+		
+		if(newSpend.compareTo(new BigDecimal("0.00")) == 1) {
+			
+			 assertEquals(newSpend, fourth.CategorySpend());
+		}
+		else {
+			assertEquals(new BigDecimal("0.00"), fourth.CategorySpend());
+		}
+		
+		 //set a remove
+		 BigDecimal remove = new BigDecimal("-300.00");
+		 fourth.removeExpense(remove);
+		 
+		 if(remove.compareTo(newSpend) == -1 && remove.compareTo(new BigDecimal("0.00")) == 1) {
+			 BigDecimal result = newSpend.subtract(remove);
+			 assertEquals(result, fourth.CategorySpend());
+		 }
+		 else 
+		 {
+			 assertEquals(newSpend, fourth.CategorySpend());
+		 }
+
+	}
+	
+	//8
+	@ParameterizedTest
+	@CsvSource({"2300.00","-5.00","6000.00"})
+	void testaddExpense(BigDecimal newSpend){
+		BoCCategory first = new BoCCategory();
+		
+		budget = new BigDecimal("3000.00");
+		first.setCategoryBudget(budget);
+		
+		//the total spend before
+		BigDecimal before = first.CategorySpend();
+		
+		first.addExpense(newSpend);
+		
+        if(newSpend.compareTo(new BigDecimal("0.00")) == 1) 
+        {        	
+        	BigDecimal after = before.add(newSpend);
+			assertEquals( after, first.CategorySpend());
+			
+		}else {
+			assertEquals(before, first.CategorySpend());
+		}	
+	}
+	//9
+	@ParameterizedTest
+	@CsvSource({"5.00","-5.00","6000.00"})
+	void testremoveExpense(BigDecimal remove){
+		BoCCategory third = new BoCCategory();
+				
+		budget = new BigDecimal("3000.00");
+		third.setCategoryBudget(budget);
+
+		BigDecimal preSpend = new BigDecimal("500.00");
+		third.addExpense(preSpend);
+		
+		
+		BigDecimal before = third.CategorySpend();
+		
+		third.removeExpense(remove);
+		
+		if(remove.compareTo(new BigDecimal("0.00")) == 1 && remove.compareTo(before) == -1) {
+			BigDecimal after = before.subtract(remove);
+			
+			assertEquals( after, third.CategorySpend());
+			}
+		else {
+			assertEquals( before, third.CategorySpend());
+		}
+	}	
 
 }
