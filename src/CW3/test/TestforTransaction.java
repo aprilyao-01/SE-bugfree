@@ -6,37 +6,48 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class TestforTransaction {
-
+	// test function: TransactionName
+	// tester: Wangji Wei
 	@Test
 	void testTransactionName() {
 		String name = "abcd";
 		BoCTransaction account = new BoCTransaction();
 		account.setTransactionName(name);
+		// check whether name has the same type after passing the function
 		assertSame(name,account.transactionName());
 	}
+	// test function: TransactionValue
+	// tester: Wangji Wei
 	@Test
 	void testTransactionValue() {
 		BigDecimal value = new BigDecimal(8888.00);
 		BoCTransaction account = new BoCTransaction();
 		account.setTransactionValue(value);
+		// check whether value has the same type after passing the function`
 		assertSame(value,account.transactionValue());
 	}
+	// test function: TransactionCategory
+	// tester: Wangji Wei
 	@Test
 	void testTransactionCategory() {
-		
 		int category = 88;
 		BoCTransaction account = new BoCTransaction();
 		account.setTransactionCategory(category);
+		// check whether category has the same type after passing the function
 		assertSame(category,account.transactionCategory());
 	}
+	// test function: TransactionTime
+	// tester: Wangji Wei
 	@Test
 	void testTransactionTime() {
 		Date time = new Date();
 		BoCTransaction account = new BoCTransaction();
 		account.setTransactionTime(time);
+		// check whether time has the same type after passing the function
 		assertSame(time,account.transactionTime());
 	}
-
+	// test function: setTransactionName
+	// tester: Wangji Wei
 	@Test
 	void testSetTransactionName() {
 		// normal test
@@ -59,7 +70,8 @@ class TestforTransaction {
 		account3.setTransactionName(name4); // set the name again
 		assertEquals(account3.transactionName(),name3);
 	}
-
+	// test function: setTransactionValue
+	// tester: Wangji Wei
 	@Test
 	void testSetTransactionValue() {
 		// normal test
@@ -82,7 +94,8 @@ class TestforTransaction {
 		account3.setTransactionValue(value4); // set the value again
 		assertEquals(account3.transactionValue(),value3);
 	}
-
+	// test function: setTransactionCategory
+	// tester: Wangji Wei
 	@Test
 	void testSetTransactionCategory() {
 		// normal test
