@@ -120,7 +120,7 @@ Here I set budget to be 3000.00, plus before each round of test, add a new spend
 |1|21/04/21 18:50|1234|category.CategoryBudget = 0.00|category.CategoryBudget = 0.00|PASS|\|\|
 |2|21/04/21 18:50|0.00|category.CategoryBudget = 0.00|category.CategoryBudget = 0.00|PASS|\|\|
 
-#### Function: public void resetBudgetSpend() 
+#### Function: public BigDecimal getRemainingBudget()
 
 ##### Tester: Jing ZHANG
 
