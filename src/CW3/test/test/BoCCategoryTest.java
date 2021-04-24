@@ -1,3 +1,6 @@
+package test;
+
+import cw3.BoCCategory;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,14 +12,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
 
 class BoCCategoryTest {
 
-//these two below defined by xingyan Qu
+    //these two below defined by xingyan Qu
 	private static BigDecimal budget;
 	private static BigDecimal newSpend;
-//here below defined by siyu Yao
+    //here below defined by siyu Yao
 	BoCCategory category;
 	BoCCategory category2;
 	private static BigDecimal bd;

@@ -1,3 +1,5 @@
+package test;
+import cw3.BoCTransaction;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -5,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestforTransaction {
+class BoCTransactionTest {
 	// test function: BoCTransaction
 	// tester: Jiachen Zhang
 	@Test
@@ -142,6 +144,6 @@ class TestforTransaction {
 	void testToString() {
 		BigDecimal value = new BigDecimal("22");
 		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
-		assertEquals(myAnswer1.transactionName() + " - 楼" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
+		assertEquals(myAnswer1.transactionName() + " - ¥" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
 	}
 }
