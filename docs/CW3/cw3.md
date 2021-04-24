@@ -22,8 +22,8 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 #### Function: transactionCategory
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/17 19:18|int category = 88; BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|assertSame(category,account.transactionCategory())|assertSame(category,account.transactionCategory())|pass|\ |\ |
-|2|21/04/17 19:19|int category = -1; BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|assertSame(category,account.transactionCategory())|assertSame(category,account.transactionCategory())|pass|\ |\ |
+|1|21/04/17 19:18|int category = 88;    BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|assertSame(category,account.transactionCategory())|assertSame(category,account.transactionCategory())|pass|\ |\ |
+|2|21/04/17 19:19|int category = -1;    BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|assertSame(category,account.transactionCategory())|assertSame(category,account.transactionCategory())|pass|\ |\ |
 
 #### Function: transactionTime
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
