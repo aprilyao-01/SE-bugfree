@@ -6,6 +6,22 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class TestforTransaction {
+	// test function: BoCTransaction
+	// tester: Jiachen Zhang
+	@Test
+	void testBoCTransaction() {
+		BoCTransaction myAnswer1 = new BoCTransaction();
+		assertEquals("[Pending Transaction]",myAnswer1);
+	}
+    // test function: BoCTransaction
+	// tester: Jiachen Zhang
+	@Test
+	void testBoCTransaction1() {
+		BigDecimal value = new BigDecimal("22");
+		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
+		Date myDate = new Date();
+		assertEquals(myDate,myAnswer1.transactionTime());
+	}
 	// test function: TransactionName
 	// tester: Wangji Wei
 	@Test
@@ -112,5 +128,20 @@ class TestforTransaction {
 		account2.setTransactionCategory(cate2);
 		assertEquals(account2.transactionCategory(),cate2);
 	}
-
+	// test function: isComplete
+	// tester: Jiachen Zhang
+	@Test
+	void testIsComplete() {
+		BigDecimal value = new BigDecimal("22");
+		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
+		assertEquals(1,myAnswer1.iscomplete());
+	}
+	// test function: toString
+	// tester: Jiachen Zhang
+	@Test
+	void testToString() {
+		BigDecimal value = new BigDecimal("22");
+		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
+		assertEquals(myAnswer1.transactionName() + " - 楼" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
+	}
 }
