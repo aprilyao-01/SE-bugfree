@@ -41,8 +41,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 #### Function: setTransactionValue
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/17 20:34|BigDecimal value1 = new BigDecimal(8888.00); BoCTransaction account1 = new BoCTransaction(); account1.setTransactionValue(value1);|assertEquals(account1.transactionValue(),value1);
-|assertEquals(account1.transactionValue(),value1);|pass|\ |\ |
+|1|21/04/17 20:34|BigDecimal value1 = new BigDecimal(8888.00); BoCTransaction account1 = new BoCTransaction(); account1.setTransactionValue(value1);|assertEquals(account1.transactionValue(),value1); |assertEquals(account1.transactionValue(),value1);|pass|\ |\ |
 |2|21/04/17 20:38|BigDecimal value2 = new BigDecimal(-1.00); BoCTransaction account2 = new BoCTransaction(); account2.setTransactionValue(value2);|assertEquals(account1.transactionValue(),value1);|null|fail|The value cannot be negative but the function cannot recognize the limitation|change the code in BoCTransaction to limit the value that must be positive|
 |3|21/04/17 20:45|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|assertEquals(account3.transactionValue(),value3)|assertEquals(account3.transactionValue(),value4)|fail|The value only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input value.|
 
@@ -55,7 +54,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 
 #### Function: isComplete
 
-||Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|--------|--------------|------------|------|--------------|------|
 | | | |
 | | | |
