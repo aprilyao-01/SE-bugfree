@@ -1,5 +1,72 @@
 ## Test Plan
 Added three columns: *"Time"* represents when the test is run, *"Failure reason"* represents according to Juit Failure Trace why the test failed and *"Change"* represents after this test what did I do/ what need to fix. 
+### Class: BoCTransaction
+
+#### Function:BoCTransaction
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+
+#### Function:TransactionName
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 19:01|String name = "abcd"; BoCTransaction account = new BoCTransaction(); account.setTransactionName(name);|assertSame(name,account.transactionName())|assertSame(name,account.transactionName())|pass|\ |\ |
+|2|21/04/17 19:05|String name = "abcd1231"; BoCTransaction account = new BoCTransaction(); account.setTransactionName(name);|assertSame(name,account.transactionName())|assertSame(name,account.transactionName())|pass|\ |\ |
+
+#### Function: transactionValue
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 19:12|BigDecimal value = new BigDecimal(8888.00); BoCTransaction account = new BoCTransaction(); account.setTransactionValue(value);|assertSame(value,account.transactionValue())|assertSame(value,account.transactionValue())|pass|\ |\ |
+|2|21/04/17 19:15|BigDecimal value = new BigDecimal(0.00); BoCTransaction account = new BoCTransaction(); account.setTransactionValue(value);|assertSame(value,account.transactionValue())|assertSame(value,account.transactionValue())|pass|\ |\ |
+
+#### Function: transactionCategory
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 19:18|int category = 88; BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|assertSame(category,account.transactionCategory())|assertSame(category,account.transactionCategory())|pass|\ |\ |
+|2|21/04/17 19:19|int category = -1; BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|assertSame(category,account.transactionCategory())|assertSame(category,account.transactionCategory())|pass|\ |\ |
+
+#### Function: transactionTime
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 19:30|Date time = new Date(); BoCTransaction account = new BoCTransaction(); account.setTransactionTime(time);|assertSame(time,account.transactionTime())|assertSame(time,account.transactionTime())|pass|\ |\ |
+|2|21/04/17 19:32|Date time = new Date(); BoCTransaction account = new BoCTransaction(); account.setTransactionTime(time);|assertSame(time,account.transactionTime())|assertSame(time,account.transactionTime())|pass|\ |\ |
+
+#### Function: setTransactionName
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 20:01|String name1 = "aaaa"; BoCTransaction account1 = new BoCTransaction();account1.setTransactionName(name1);|assertEquals(account1.transactionName(),name1);|assertEquals(account1.transactionName(),name1);|pass|\ |\ |
+|2|21/04/17 20:18|String name2 = "abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde"; BoCTransaction account2 = new BoCTransaction(); account2.setTransactionName(name2);|assertEquals(account2.transactionName(),"abcdeabcdeabcdeabcdeabcde");|assertEquals(account2.transactionName(),name2);|fail|The name is limited to 25 characters but the function does not recognize that limitation.|change the code in BoCTransaction to limit the characters.|
+|3|21/04/17 20:26|String name3 = "abcde"; String name4 = "abcd";BoCTransaction account3 = new BoCTransaction();account3.setTransactionName(name3);account3.setTransactionName(name4);|assertEquals(account3.transactionName(),name3);|assertEquals(account3.transactionName(),name4);|fail|The name only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input name.|
+
+#### Function: setTransactionValue
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 20:34|BigDecimal value1 = new BigDecimal(8888.00); BoCTransaction account1 = new BoCTransaction(); account1.setTransactionValue(value1);|assertEquals(account1.transactionValue(),value1);
+|assertEquals(account1.transactionValue(),value1);|pass|\ |\ |
+|2|21/04/17 20:38|BigDecimal value2 = new BigDecimal(-1.00); BoCTransaction account2 = new BoCTransaction(); account2.setTransactionValue(value2);|assertEquals(account1.transactionValue(),value1);|null|fail|The value cannot be negative but the function cannot recognize the limitation|change the code in BoCTransaction to limit the value that must be positive|
+|3|21/04/17 20:45|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|assertEquals(account3.transactionValue(),value3)|assertEquals(account3.transactionValue(),value4)|fail|The value only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input value.|
+
+#### Function: setTransactionCategory
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+|1|21/04/17 21:02|int category = 88; BoCTransaction account1 = new BoCTransaction(); account1.setTransactionCategory(category);|assertEquals(account1.transactionCategory(),category);|assertEquals(account1.transactionCategory(),category);|pass|\ |\ |
+|2|21/04/17 21:15|int cate1 = 1;int cate2 = 2;BoCTransaction account2 = new BoCTransaction();account2.setTransactionCategory(cate1);account2.setTransactionCategory(cate2);|assertEquals(account2.transactionCategory(),cate2);|assertEquals(account2.transactionCategory(),cate2);|pass|\ |\ |
+
+
+#### Function: isComplete
+
+||Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+| | | |
+| | | |
+
+#### Function: toString
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|-----------------------|------------|------|--------------|------|
+| | | |
+| | | |
+
 ### Class: BoC Category
 
 #### Function: public BoCCategory()
@@ -7,7 +74,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 ##### Tester: Siyu YAO
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
-|----|----|------|----------------|------------|------|------------|------|
+|----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/19 10:32|Construct a new object and test if it is successfully constructed|NotNull|Null|Failed|@Before and @After is no longer exist in Junit5, use @BeforeEach and @AfterEach instead|Change the test code: @Before and @After to @BeforeEach and @AfterEach|
 |2|21/04/19 10:38|Construct a new object and test if it is successfully constructed|NotNull|NotNull|Passed|||
 |3|21/04/19 10:45|assertEquals("New Category", category.CategoryName());    assertEquals(0.00, category.CategoryBudget());       assertEquals(0.00, category.CategorySpend());|"New Category" 0.00 0.00|"New Category" 0.00 0.00|Failed|CategoryBudget methord returns BigDecimal should use String instead of Double|Change the test code to: assertEquals("0.00", category.CategoryBudget());assertEquals("0.00", category.CategorySpend());|
