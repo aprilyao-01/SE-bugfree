@@ -5,7 +5,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 #### Function:BoCTransaction
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
-|----|----|-----------------------|------------|------|--------------|------|
+|----|----|------|-----------------|------------|------|--------------|------|
 
 #### Function:TransactionName
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
