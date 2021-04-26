@@ -10,30 +10,35 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |2|21/04/18 18:20|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);Date myDate = new Date();|assertEquals(myDate,myAnswer1.transactionTime());|assertEquals(myDate,myAnswer1.transactionTime());|pass|||
 
 #### Function:TransactionName
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 19:01|String name = "abcd"; BoCTransaction account = new BoCTransaction(); account.setTransactionName(name);|abcd|abcd|pass|\ |\ |
 |2|21/04/17 19:05|String name = "abcd1231"; BoCTransaction account = new BoCTransaction(); account.setTransactionName(name);|abcd1231|abcd1231|pass|\ |\ |
 
 #### Function: transactionValue
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 19:12|BigDecimal value = new BigDecimal(8888.00); BoCTransaction account = new BoCTransaction(); account.setTransactionValue(value);|8888.00|8888.00|pass|\ |\ |
 |2|21/04/17 19:15|BigDecimal value = new BigDecimal(0.00); BoCTransaction account = new BoCTransaction(); account.setTransactionValue(value);|0.00|0.00|pass|\ |\ |
 
 #### Function: transactionCategory
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 19:18|int category = 88;    BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|88|88|pass|\ |\ |
 |2|21/04/17 19:19|int category = -1;    BoCTransaction account = new BoCTransaction(); account.setTransactionCategory(category);|-1|-1|pass|\ |\ |
 
 #### Function: transactionTime
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 19:30|Date time = new Date(); BoCTransaction account = new BoCTransaction(); account.setTransactionTime(time);|2021/04/17 19:30:48|2021/04/17 19:30:48|pass|\ |\ |
 |2|21/04/17 19:32|Date time = new Date(); BoCTransaction account = new BoCTransaction(); account.setTransactionTime(time);|2021/04/17 19:32:15|2021/04/17 19:32:15|pass|\ |\ |
 
 #### Function: setTransactionName
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 20:01|String name1 = "aaaa"; BoCTransaction account1 = new BoCTransaction();account1.setTransactionName(name1);|aaaa|aaaa|pass|\ |\ |
@@ -41,6 +46,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |3|21/04/17 20:26|String name3 = "abcde"; String name4 = "abcd";BoCTransaction account3 = new BoCTransaction();account3.setTransactionName(name3);account3.setTransactionName(name4);|abcde|abcd|fail|The name only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input name.|
 
 #### Function: setTransactionValue
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 20:34|BigDecimal value1 = new BigDecimal(8888.00); BoCTransaction account1 = new BoCTransaction(); account1.setTransactionValue(value1);|8888.00|8888.00|pass|\ |\ |
@@ -48,6 +54,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |3|21/04/17 20:45|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|500|800|fail|The value only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input value.|
 
 #### Function: setTransactionCategory
+##### Tester: Wangji Wei
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/17 21:02|int category = 88; BoCTransaction account1 = new BoCTransaction(); account1.setTransactionCategory(category);|88|88|pass|\ |\ |
