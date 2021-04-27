@@ -3,11 +3,11 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 ### Class: BoCTransaction
 
 #### Function:BoCTransaction
-
+##### Contributor: Jiachen Zhang
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/18 18:10|BoCTransaction myAnswer1 = new BoCTransaction();|assertEquals("[Pending Transaction]",myAnswer1);|""|||
-|2|21/04/18 18:20|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);Date myDate = new Date();|assertEquals(myDate,myAnswer1.transactionTime());|assertEquals(myDate,myAnswer1.transactionTime());|Passed|||
+|1|21/04/18 18:10|BoCTransaction myAnswer1 = new BoCTransaction();|[Pending Transaction]|null|||
+|2|21/04/18 18:20|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);Date myDate = new Date();|new Date()|new Date()|Passed|||
 
 #### Function:TransactionName
 ##### Contributor: Wangji Wei
@@ -62,16 +62,16 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 
 
 #### Function: isComplete
-
+##### Contributor: Jiachen Zhang
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|--------|--------------|------------|------|--------------|------|
-|1|21/04/19 19:10|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|assertEquals(1,myAnswer1.iscomplete());||error|||
+|1|21/04/19 19:10|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|1||error|||
 
 #### Function: toString
-
+##### Contributor: Jiachen Zhang
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/19 19:30|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|assertEquals(myAnswer1.transactionName() + " - 楼" + myAnswer1.transactionValue().toString(),myAnswer1.toString());|assertEquals(myAnswer1.transactionName() + " - 楼" + myAnswer1.transactionValue().toString(),myAnswer1.toString());|Passed|||
+|1|21/04/19 19:30|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|abc - ¥22|abc - ¥22|Passed|||
 
 ### Class: BoC Category
 
