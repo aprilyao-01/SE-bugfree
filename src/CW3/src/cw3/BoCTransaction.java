@@ -1,4 +1,3 @@
-package cw3;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -39,17 +38,29 @@ public class BoCTransaction {
 	}
 
 	public void setTransactionName(String tName) {
-		if (tName != null) {
-			transactionName = tName;
+		if(transactionName != null) {
+			System.out.println("Already set the TransactionName.\n");
+			tName = transactionName;
 		}
-	}
+		if (tName.length()>25) {
+			tName = tName.substring(0, 25);
+		}
+		transactionName = tName; 
+		}
 
 	public void setTransactionValue(BigDecimal tValue) {
+		if (transactionValue != null) {
+			System.out.println("Already set the TransactionValue.\n");
+			tValue = transactionValue;
+		}
+		if (tValue.compareTo(new BigDecimal("0.00"))== -1) {
+			System.out.println("The transaction Value cannot be negative.\n");
+		}
 		if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
 			// 1 means bigger, -1 means smaller, 0 means same
-			transactionValue = tValue;
+				transactionValue = tValue;
+			}
 		}
-	}
 
 	public void setTransactionCategory(int tCat) {
 		if (tCat > 0) {
