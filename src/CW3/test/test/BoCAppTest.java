@@ -24,6 +24,30 @@ class BoCAppTest {
 	public static void setUpStreams() {
 	System.setOut(new PrintStream(outContent));
 	}
+    // Function: AddTransaction()
+	// Contributor: Jiachen Zhang
+	@Test
+	void testAddTransaction() throws IllegalAccessException,
+	IllegalArgumentException,
+	InvocationTargetException,
+	NoSuchMethodException,
+	SecurityException {
+		
+		BoCApp addt = new BoCApp();
+		BoCApp.setup();
+		Method m = BoCApp.class.getDeclaredMethod("AddTransaction", Scanner.class);
+		m.setAccessible(true);
+		String input = System.lineSeparator() + "abc" + System.lineSeparator() + "1000" + System.lineSeparator()+ "1" + System.lineSeparator()  ;
+		InputStream in = new ByteArrayInputStream(input.getBytes());
+		System.setIn(in);
+		Scanner in2 = new Scanner(System.in);
+        m.invoke(addt, in2);
+        
+		assertEquals("What is the title of the transaction?" + System.lineSeparator() + 
+			         "What is the value of the transaction?" + System.lineSeparator() + 
+			         "[abc(1000)was added to 1]", outContent.toString());
+		
+
 	
 	// Function: AddCategory(Scanner in)
 	// Contributor: Jing ZHANG
@@ -102,4 +126,7 @@ class BoCAppTest {
 		
 		 
 	}
+
+	// Function: AddCategory(Scanner in)
+	// Contributor: Jing ZHANG
 }

@@ -214,6 +214,14 @@ Here I set budget to be 3000.00, plus before each round of test, add a new spend
 
 ### Class: BoC App
 
+#### Function: private static void AddTransaction(Scanner in)
+
+##### Contributor: Jiachen ZHANG
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|------|----------------|------------|------|------------|------|
+|1|21/4/27 19:00|title = "abc" , value = "600" , Category = 1|What is the title of the transaction? What is the value of the transaction? [abc(1000)was added to 1]|What is the title of the transaction? What is the value of the transaction? [Transaction added]|Failed|||
+
 #### Function: private static void AddCategory(Scanner in)
 
 ##### Contributor: Jing ZHANG
