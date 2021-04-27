@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/cw3/BoCCategory.java=UTF-8
 encoding//src/cw3/BoCTransaction.java=UTF-8
+encoding//test/test/BoCAppTest.java=UTF-8
 encoding//test/test/BoCCategoryTest.java=UTF-8
 encoding//test/test/BoCTransactionTest.java=UTF-8
