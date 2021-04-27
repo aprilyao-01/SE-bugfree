@@ -2,14 +2,17 @@ package test;
 import cw3.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Stream;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -45,7 +48,7 @@ class BoCAppTest {
         
 		assertEquals("What is the title of the transaction?" + System.lineSeparator() + 
 			         "What is the value of the transaction?" + System.lineSeparator() + 
-			         "[abc(1000)was added to 1]", outContent.toString());
+			         "[abc(1000)was added to 1]", outContent.toString());}
 		
 
 	
