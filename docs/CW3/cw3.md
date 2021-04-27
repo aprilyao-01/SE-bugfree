@@ -6,7 +6,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 ##### Contributor: Jiachen Zhang
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/18 18:10|BoCTransaction myAnswer1 = new BoCTransaction();|[Pending Transaction]|null|||
+|1|21/04/18 18:10|BoCTransaction myAnswer1 = new BoCTransaction();|[Pending Transaction]|null|Failed||
 |2|21/04/18 18:20|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);Date myDate = new Date();|new Date()|new Date()|Passed|||
 
 #### Function:TransactionName
