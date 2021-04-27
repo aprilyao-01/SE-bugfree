@@ -25,6 +25,10 @@ class BoCAppTest {
 	System.setOut(new PrintStream(outContent));
 	}
 	
+	// Function: AddCategory(Scanner in)
+	// Contributor: Jing ZHANG
+	
+	// creating input streams for normal input and abnormal input
 	static Stream<Arguments> normalIn(){
 		return Stream.of(
 				Arguments.of((Object) new Scanner ("\nCloth\n100.00\n"))
@@ -39,6 +43,7 @@ class BoCAppTest {
 		);
 	}
 
+	// testing if this function work well with normal input
 	@ParameterizedTest
 	@MethodSource("normalIn")
 	public void AddCategoryTests1(Scanner in) throws IllegalAccessException,
@@ -46,11 +51,11 @@ class BoCAppTest {
 	InvocationTargetException,
 	NoSuchMethodException,
 	SecurityException {
-		//create object
+		// create object
 		BoCApp testforBC = new BoCApp();
 		ArrayList<BoCCategory> test = new ArrayList<BoCCategory>();
 		
-		BoCApp.SetUp();
+		BoCApp.setup();
 		Method m = BoCApp.class.getDeclaredMethod("AddCategory", Scanner.class);//declare which method you want to test
 		m.setAccessible(true);//set the accessible to true, then you can access the method
 		m.invoke(testforBC, in);
@@ -72,6 +77,11 @@ class BoCAppTest {
 		 
 	}
 	
+	//testing if this function work well with abnormal inputs
+	//three cases:
+	//1)test if it's not allowed to add a new category with a abnormal title(greater than 15 characters)
+	//2)test if it's not allowed to add a new category with a abnormal title(greater than 15 characters) and a abnormal budget(<=0)
+	//3)test if it's not allowed to add a new category with a normal title and a abnormal budget(<=0)
 	@ParameterizedTest
 	@MethodSource("abnormalIn")
 	public void AddCategoryTests2(Scanner in) throws IllegalAccessException,
@@ -82,7 +92,7 @@ class BoCAppTest {
 		//create object
 		BoCApp testforBC = new BoCApp();
 		ArrayList<BoCCategory> test = new ArrayList<BoCCategory>();	
-		BoCApp.SetUp();
+		BoCApp.setup();
 		Method m = BoCApp.class.getDeclaredMethod("AddCategory", Scanner.class);//declare the AddCategory method 
 		m.setAccessible(true);//set the accessible to true
 		m.invoke(testforBC, in);

@@ -8,7 +8,9 @@ public class BoCApp {
 	public static ArrayList<BoCCategory> UserCategories;
 
 	public static void main(String[] args) {
-		SetUp();
+		/*The code of set up sample data has been improving in order for testing*/
+		/*Refactored by JingZHANG*/
+		setup();
 
 		// MAIN FUNCTION LOOP
 
@@ -49,7 +51,7 @@ public class BoCApp {
 
 
 
-	public static void SetUp() {
+	public static void setup() {
 		UserCategories = new ArrayList<BoCCategory>();
 		UserTransactions = new ArrayList<BoCTransaction>();
 
