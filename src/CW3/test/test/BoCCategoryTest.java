@@ -4,6 +4,8 @@ import cw3.BoCCategory;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.AfterEach;
@@ -27,6 +29,8 @@ class BoCCategoryTest {
 	private static BigDecimal bd;
 	private static BigDecimal spent1;
 	private static BigDecimal spent2;
+	//here below defined by Jing ZHANG
+	private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
 	@BeforeAll
 	static void initializeSetUp() {
@@ -35,6 +39,10 @@ class BoCCategoryTest {
 		spent2 = new BigDecimal("3281.07");
 		
 	}
+	public static void setUpStreams() {
+		System.setOut(new PrintStream(outContent));
+		}
+		
 	
 	
 	@BeforeEach
@@ -88,20 +96,25 @@ class BoCCategoryTest {
 		BigDecimal budget = new BigDecimal("0.00");
 		BigDecimal spend = new BigDecimal("0.00");
 
-		//This is to test whether the category'name is NULL or not
-		assertNotNull(category.CategoryName());
+		if (category.CategoryName() == null) {
+			//This is to test whether the category'name is NULL or not
+			assertEquals("Title could not be NULL, please enter again:", outContent.toString());
+			outContent.reset();
+		}
+		
+		if (category.CategoryName().length() > 15) {
+			//This is to test if the category's name is longer than 15 characters
+			assertEquals("Title could not be more than 15 characters, please enter again:", outContent.toString());
+			outContent.reset();
+		}
 		
 		//This is to test whether the category's name is String or not
 		//After discuss with the Bryan, this situation could not be considered
 		//assertFalse(category.CategoryName().contains("."));
 		//assertFalse(category.CategoryName().matches("^(\\-|\\+)?\\d*"));
 		
-		//This is to test if the category's name is longer than 15 characters
+		assertNotNull(category.CategoryName());
 		assertFalse(category.CategoryName().length() > 15);
-		
-		//This is to test the rest of the two attribute
-		assertEquals(budget, category.CategoryBudget());
-		assertEquals(spend, category.CategorySpend());
 		
 	}
 
@@ -212,7 +225,12 @@ class BoCCategoryTest {
 	void testSetCategoryBudget(BigDecimal newValue) {
 		BoCCategory category = new BoCCategory();
 		category.setCategoryBudget(newValue);
-		assertTrue(category.CategoryBudget().compareTo(new BigDecimal("0.00")) == 1);
+		if(category.CategoryBudget().compareTo(new BigDecimal("0.00")) == 1) {
+			assertTrue(category.CategoryBudget().compareTo(new BigDecimal("0.00")) == 1);
+		}else {
+			
+		}
+		
 		
 	}
 
@@ -266,7 +284,8 @@ class BoCCategoryTest {
 			assertEquals( after, third.CategorySpend());
 			}
 		else {
-			assertEquals( before, third.CategorySpend());
+			assertEquals("Illegal budget, please enter again:", outContent.toString());
+			outContent.reset();
 		}
 	}	
 

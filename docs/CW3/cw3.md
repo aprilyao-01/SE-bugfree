@@ -97,12 +97,12 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|-------------|------|
-|1|21/04/20 19:02|"Cloth"|category.CategoryName = "Cloth"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|category.CategoryName = "Cloth"; category.CategoryBudget = 0.00;  category.CategoryBudget = 0.00;|Passed|\ | \|
-|2|21/04/20 19:10|"This string is more than 15 characters"|error|category.CategoryName = "This string is more than 15 characters"; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|when inputting the string more than 15 characters, the program won't throw out the expectation.|Change the source code, use do while to to avoid user input illegal category name|
-|3|21/04/20 19:12|NULL|"Title could not be NULL, please enter again:"|category.CategoryName = NULL; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|when inputting null, the program won't throw out the expectation.|Change the source code, use do while to to avoid user input illegal category name|
+|1|21/04/20 19:02|"Cloth"|category.CategoryName = "Cloth"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|category.CategoryName = "Cloth"; category.CategoryBudget = 0.00;  category.CategoryBudget = 0.00;|Passed|\|\|
+|2|21/04/20 19:10|"This string is more than 15 characters"|"Title could not be more than 15 characters, please enter again:"|category.CategoryName = "This string is more than 15 characters"; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|\|
+|3|21/04/20 19:12|NULL|"Title could not be NULL, please enter again:"|category.CategoryName = NULL; category.CategoryBudget = 0.00;  category.CategoryBudget = 0.00;|Failed|\|
 |4|21/04/22 18:40|Unknown|category.CategoryName = "Unknown"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|category.CategoryName = "Unknown"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|Passed|\|\|
-|5|21/04/28 20:25|"This string is more than 15 characters"|"Title could not be more than 15 characters, please enter again:"|"Title could not be more than 15 characters, please enter again:"|Passed|\|\|
-|6|21/04/28 20:25|NULL|"Title could not be NULL, please enter again:"|"Title could not be NULL, please enter again:"|Passed|\|\|
+|5|21/04/28 20:25|"This string is more than 15 characters"|"Title could not be more than 15 characters, please enter again:"|"Title could not be more than 15 characters, please enter again:"|Passed|\|when inputting the string more than 15 characters, the program won't throw out the expectation.|Change the source code, use do while to to avoid user input illegal category name|
+|6|21/04/28 20:25|NULL|"Title could not be NULL, please enter again:"|"Title could not be NULL, please enter again:"|Passed|\|when inputting null, the program won't throw out the expectation.|Change the source code, use do while to to avoid user input illegal category name|
 
 #### Function: public String CategoryName() 
 
@@ -158,9 +158,11 @@ Here I set budget to be 3000.00
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|-------------|------|
-|1|21/04/21 18:32|1234|category.CategoryBudget = 1234|category.CategoryBudget = 1234.00|Passed|||
-|2|21/04/21 18:32|0.00|error|category.CategoryBudget = 0.00|Failed|When the user input the wrong numeric, the program have not ask the user to input again|**Need to improve the Java code**|
-|3|21/04/21 18:32|-1234|error|category.CategoryBudget = 0.00|Failed|When the user input the wrong numeric, the program have not ask the user to input again|**Need to improve the Java code**|
+|1|21/04/21 18:32|1234|category.CategoryBudget = 1234|category.CategoryBudget = 1234.00|Passed|\|\|
+|2|21/04/21 18:32|0.00|"Illegal budget, please enter again:"|category.CategoryBudget = 0.00|Failed|When the user input the wrong numeric, the program have not ask the user to input again|\|
+|3|21/04/21 18:32|-1234|"Illegal budget, please enter again:"|category.CategoryBudget = 0.00|Failed|When the user input the wrong numeric, the program have not ask the user to input again|\|
+|4|21/04/28 20:05|0.00|"Illegal budget, please enter again:"|"Illegal budget, please enter again:"|Failed|When the user input the wrong numeric, the program have not ask the user to input again|Use do while to to avoid user input illegal budget value, if user input illegal budget value, should enter again|
+|5|21/04/28 20:25|-1234|"Illegal budget, please enter again:"|"Illegal budget, please enter again:"|Failed|When the user input the wrong numeric, the program have not ask the user to input again|Use do while to to avoid user input illegal budget value, if user input illegal budget value, should enter again|
 
 #### Function: Add Expense function
 
