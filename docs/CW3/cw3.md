@@ -44,6 +44,8 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |1|21/04/17 20:01|String name1 = "aaaa"; BoCTransaction account1 = new BoCTransaction();account1.setTransactionName(name1);|aaaa|aaaa|Passed|\ |\ |
 |2|21/04/17 20:18|String name2 = "abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde"; BoCTransaction account2 = new BoCTransaction(); account2.setTransactionName(name2);|abcdeabcdeabcdeabcdeabcde|abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde|Failed|The name is limited to 25 characters but the function does not recognize that limitation.|change the code in BoCTransaction to limit the characters.|
 |3|21/04/17 20:26|String name3 = "abcde"; String name4 = "abcd";BoCTransaction account3 = new BoCTransaction();account3.setTransactionName(name3);account3.setTransactionName(name4);|abcde|abcd|Failed|The name only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input name.|
+|4|21/04/26 19:45|String name2 = "abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde"; BoCTransaction account2 = new BoCTransaction(); account2.setTransactionName(name2);|abcdeabcdeabcdeabcdeabcde|abcdeabcdeabcdeabcdeabcde|passed|\ |if the length of transactionName is bigger than 25,cut the string to 25 characters at maximum.|
+|5|21/04/26 20:12|String name3 = "abcde"; String name4 = "abcd";BoCTransaction account3 = new BoCTransaction();account3.setTransactionName(name3);account3.setTransactionName(name4);|abcde|abcde|passed|\ |if the transaction is not null then continue the next move else do not set the transactionname again.|
 
 #### Function: setTransactionValue
 ##### Contributor: Wangji Wei
@@ -52,6 +54,8 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |1|21/04/17 20:34|BigDecimal value1 = new BigDecimal(8888.00); BoCTransaction account1 = new BoCTransaction(); account1.setTransactionValue(value1);|8888.00|8888.00|Passed|\ |\ |
 |2|21/04/17 20:38|BigDecimal value2 = new BigDecimal(-1.00); BoCTransaction account2 = new BoCTransaction(); account2.setTransactionValue(value2);|-1.00|null|Failed|The value cannot be negative but the function cannot recognize the limitation|change the code in BoCTransaction to limit the value that must be positive|
 |3|21/04/17 20:45|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|500|800|Failed|The value only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input value.|
+|4|21/04/26 20:25|BigDecimal value2 = new BigDecimal(-1.00); BoCTransaction account2 = new BoCTransaction(); account2.setTransactionValue(value2);|null|null|passed|\ |show the warning "The transaciton value cannot be negative."|
+|5|21/04/26 21:00|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|500|500|passed|\ |if the transactionValue is not null then continue the next move else do not set the transaction value again.|
 
 #### Function: setTransactionCategory
 ##### Contributor: Wangji Wei
@@ -233,3 +237,59 @@ Here I set budget to be 3000.00, plus before each round of test, add a new spend
 |3|21/04/26 23:32|title = 'This is greater than 15 characters' cbudget = -1234|error|A new category was added|Failed|The function not throw exception when the category's name and the budget are invalid|**Need improve the java code**|
 |4|21/04/26 23:32|title = 'Cloth' cbudget = -1234|error|A new category was added|Failed|The function not throw exception when the budget is invalid|**Need improve the java code**|
 |5|21/04/28 12:12|title = 'Cloth' cbudget = 100.00|What is the title of the category?  What is the budget for this category?  [Category added]  1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)  2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)  3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)  4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)  5) Cloth(¥100.00) - Est. ¥0.00 (¥100.00 Remaining)|What is the title of the category?  What is the budget for this category?  [Category added]  1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)  2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)  3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)  4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)  5) Cloth(¥100.00) - ¥0.00 (¥100.00 Remaining)|Failed|The output of funtion CategoryOverview() has problem|**Need improve the java code of  CategoryOverview()**|
+
+
+
+#### Function: public static void ListTransactions()
+
+##### Tester: Xingyan Qu
+
+This function should : loop through all the transactions, listing them out to the user in format: - E.g. “SanJiang shopping (groceries) - ¥186.90
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|------|----------------|------------|------|--------------|------|
+|1|21/04/26 18:30|"T"|	1) Rent(Unknown) - ¥850.00<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99|1) Rent - ¥850.00<br/>2) Phone Bill - ¥37.99<br/>3) Electricity Bill - ¥75.00<br/>4) Sainsbury's Checkout - ¥23.76<br/>5) Tesco's Checkout - ¥7.24<br/>6) RockCity Drinks - ¥8.50<br/>7) The Mooch - ¥13.99| fail | wrong fomat : lack of category name| need fix this in ** Class: BoCTransaction ** toString()|
+
+
+
+#### Function: public static void CategoryOverview()
+
+##### Tester: Xingyan Qu
+
+This function should loop through the transactions creating summaries for each category, and then print out a list of categories and how much has been spent in that category in total, e.g.
+			Bills (Budget: ¥2000.00) - ¥1532.98 (¥467.02 Remaining)
+			Groceries (Budget:1800.00）- ¥2412.53 (¥342.53 Overspent)
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|------|----------------|------------|------|--------------|------|
+|1|21/04/26 18:55|"O"|1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)｜1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)｜ fail | wrong fomat | need fix this in ** Class: BoC Category ** toString()|
+
+ 
+
+#### Function: 	public static void ListTransactionsForCategory(int chosenCategory) 
+
+##### Tester: Xingyan Qu
+
+This function should take a category ID as a parameter, and uses it to filter the transactions for the given category. The list of transactions should be like the list transactions function, plus stating a category first.
+
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|------|----------------|------------|------|--------------|------|
+|1|21/04/26 20:43|"0"|Unknown:<br/>1) Rent(Unknown) - ¥850.00|1) Rent - ¥850.00| fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
+|2|21/04/26 20:43|"1"|Bills:<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00｜2) Phone Bill - ¥37.99<br/>3) Electricity Bill - ¥75.00｜ fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
+|3|21/04/26 20:43|"2"|Groceries:<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24｜4) Sainsbury's Checkout - ¥23.76<br/>5) Tesco's Checkout - ¥7.24 | fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
+|4|21/04/26 20:43|"3"|Social:<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99|6) RockCity Drinks - ¥8.50<br/>7) The Mooch - ¥13.99| fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
+
+
+#### Function: public static void main(String[] args)
+
+##### Tester: Xingyan Qu
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|------|----------------|------------|------|--------------|------|
+|1|21/04/27 13:22|"T"+"\r"+"X"| 1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)<br/><br/>What do you want to do?<br/> T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it<br/>1) Rent(Unknown) - ¥850.00<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99<br/><br/>What do you want to do?<br/> O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it<br/>Goodbye!| 1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)<br/><br/>What do you want to do?<br/> T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it<br/>1) Rent - ¥850.00<br/>2) Phone Bill - ¥37.99<br/>3) Electricity Bill - ¥75.00<br/>4) Sainsbury's Checkout - ¥23.76<br/>5) Tesco's Checkout - ¥7.24<br/>6) RockCity Drinks - ¥8.50<br/>7) The Mooch - ¥13.99<br/><br/>What do you want to do?<br/> O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it<br/>Goodbye!| fail |wrong format in CategoryOverview() and ListTransactions(), also lack of confirmation and didn't show the result|need to change the sourse code|
+|2| 21/04/28 13:05 |"N"+"\r"+"study"+"\r"+"900"+"\r"|"1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)<br/>What do you want to do?<br/>T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it<br/>What is the title of the category?<br/>What is the budget for this category?<br/>[Category added]:<br/>5) study(¥900) - ¥0.00 (¥900.00 Remaining)<br/>1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)<br/>5) study(¥900) - ¥0.00 (¥900.00 Remaining)<br/><br/>What do you want to do?<br/>O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it<br/>|1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)<br/><br/>What do you want to do?<br/> T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it<br/>What is the title of the category?<br/>What is the budget for this category?<br/>[Category added]<br/>1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)<br/>5) study(¥900) - Est. ¥0.00 (¥900.00 Remaining)<br/><br/>What do you want to do?<br/>O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it|fail|wrong format in CategoryOverview() and ListTransactions(), also lack of confirmation|need to change the sourse code|
+|3| 21/04/28 13:21|"A"+"\r"+"drink"+"\r"+"50"+"\r"+"3"|"1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)<br/><br/>What do you want to do?<br/>T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it<br/>What is the title of the transaction?<br/>What is the category of the transaction?<br/>+"(Press \"Enter\" will set to \"Unknown\" automatically)<br/>What is the value of the transaction?<br/>drink(¥50) was added to [Category Name]"<br/>What do you want to do?<br/>O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it<br/>Social:\n6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99<br/>8) drink(Social) - ¥50<br/>What do you want to do?<br/>O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it<br/>| 1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)<br/><br/>What do you want to do?<br/>T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction,X = E[x]it<br/>What is the title of the transaction?<br/>What is the value of the transaction?<br/>[Transaction added]<br/><br/>What do you want to do?<br/>O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it<br/>6) RockCity Drinks - ¥8.50<br/>7) The Mooch - ¥13.99<br/><br/>What do you want to do?<br/>O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it|fail|wrong format in CategoryOverview(),ListTransactions() and confirmation , didn't provide user the option to assign a category |need to change the sourse code|
+
+
+
