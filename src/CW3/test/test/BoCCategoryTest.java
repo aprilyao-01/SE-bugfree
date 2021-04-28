@@ -62,19 +62,31 @@ class BoCCategoryTest {
 
 	//Test Function: public BoCCategory(String newTitle)
 	//Tester: Jing ZHANG
+	//First test is aims to test if the new category could be added successfully
+	@Test
+	void testBoCCategoryString1() {
+		BoCCategory category = new BoCCategory("Cloth");
+		BigDecimal budget = new BigDecimal("0.00");
+		BigDecimal spend = new BigDecimal("0.00");
+
+		assertEquals("Cloth", category.CategoryName());
+		
+		//This is to test the rest of the two attribute
+		assertEquals(budget, category.CategoryBudget());
+		assertEquals(spend, category.CategorySpend());
+		
+	}
+	
+	//Test Function: public BoCCategory(String newTitle)
+	//Tester: Jing ZHANG
+	//Second test is aims to test if the function could handle illegal input	
 	@ParameterizedTest
-	@ValueSource(strings = {"Cloth","This string is more than 15 characters", "Unknown"})
+	@ValueSource(strings = {"This string is more than 15 characters", "Unknown"})
 	@NullSource
-	void testBoCCategoryString(String newTitle) {
+	void testBoCCategoryString2(String newTitle) {
 		BoCCategory category = new BoCCategory(newTitle);
 		BigDecimal budget = new BigDecimal("0.00");
 		BigDecimal spend = new BigDecimal("0.00");
-		
-		//This is to test if the category's name is "Unknown"
-		assertNotEquals("Unknown",category.CategoryName());
-		
-		//This is to test if the category's name is equal to the newTitle
-		assertEquals(newTitle, category.CategoryName());
 
 		//This is to test whether the category'name is NULL or not
 		assertNotNull(category.CategoryName());
