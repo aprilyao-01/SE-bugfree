@@ -174,20 +174,22 @@ class BoCCategoryTest {
 	//Tester: Siyu YAO
 	@ParameterizedTest
 	@ValueSource(strings = { "food", "shopping", "transportation", "this is a sentence more than 15 characters", "Unknown", "   " })
-	void testSetAndCategoryName(String name) {
+	void testSetCategoryName(String name) {
 		category.setCategoryName(name);
 		
-	 // This test tests the category name is at most 15 characters
-		assertFalse(category.CategoryName().length() > 15);
-	
-	 // This test tests the category name cannot set to be "Unknown"
-		assertNotEquals("Unknown",category.CategoryName());
-	
-	 // This test tests the category name cannot set to be blank 
-		assertFalse(category.CategoryName().isBlank());
-	   
-	// Other compliance with the specification
-	   assertEquals(name, category.CategoryName());
+		if(name.equalsIgnoreCase("Unknown") || name.length() > 15 || name.isBlank()) {
+			// This test tests the category name is at most 15 characters
+			assertFalse(category.CategoryName().length() > 15);
+		
+			// This test tests the category name cannot set to be "Unknown"
+			assertNotEquals("Unknown",category.CategoryName());
+		
+			// This test tests the category name cannot set to be blank 
+			assertFalse(category.CategoryName().isBlank());
+		} else {
+			// Other compliance with the specification
+			assertEquals(name, category.CategoryName());
+		}
 	}
 
 
