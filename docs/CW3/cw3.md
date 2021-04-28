@@ -279,11 +279,14 @@ This function should take a category ID as a parameter, and uses it to filter th
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/26 20:43|"0"|Unknown:<br/>1) Rent(Unknown) - ¥850.00|1) Rent - ¥850.00| fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
-|2|21/04/26 20:43|"1"|Bills:<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00｜2) Phone Bill - ¥37.99<br/>3) Electricity Bill - ¥75.00｜ fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
-|3|21/04/26 20:43|"2"|Groceries:<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24｜4) Sainsbury's Checkout - ¥23.76<br/>5) Tesco's Checkout - ¥7.24 | fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
-|4|21/04/26 20:43|"3"|Social:<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99|6) RockCity Drinks - ¥8.50<br/>7) The Mooch - ¥13.99| fail | wrong fomat : lack of category name and didn't stating the category first|need fix this in both print out message and in  ** Class: BoCTransaction ** toString()|
-
+|1|21/04/26 20:43|"1"|Unknown:<br/>1) Rent(Unknown) - ¥850.00|2) Phone Bill - ¥37.99<br/>3) Electricity Bill - ¥75.00| fail | wrong fomat : lack of category name and didn't stating the category first，wrong index||
+|2|21/04/26 20:43|"2"|Bills:<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00|4) Sainsbury's Checkout - ¥23.76<br/>5) Tesco's Checkout - ¥7.24 | fail |  wrong fomat : lack of category name and didn't stating the category first，wrong index||
+|3|21/04/26 20:43|"3"|Groceries:<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24|6) RockCity Drinks - ¥8.50<br/>7) The Mooch - ¥13.99| fail | wrong fomat : lack of category name and didn't stating the category first，wrong index||
+|4|21/04/26 20:43|"4"|Social:<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99|Exception| fail |wrong index||
+|5|21/04/28 19:21|"1"|Unknown:<br/>1) Rent(Unknown) - ¥850.00|Unknown:<br/>1) Rent(Unknown) - ¥850.00|pass| |change source code: give a check on user's input and print error message if invalid. If valid ,state the category name first,fix index|
+|6|21/04/28 19:21|"2"|Bills:<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00|Bills:<br/>2) Phone Bill(Bills) - ¥37.99<br/>3) Electricity Bill(Bills) - ¥75.00| pass| |change source code: give a check on user's input and print error message if invalid. If valid ,state the category name first,fix index|
+|7|21/04/28 19:21|"3"|Groceries:<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24|Groceries:<br/>4) Sainsbury's Checkout(Groceries) - ¥23.76<br/>5) Tesco's Checkout(Groceries) - ¥7.24| pass|  |change source code: give a check on user's input and print error message if invalid. If valid ,state the category name first,fix index|
+|8|21/04/28 19:21|"4"|Social:<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99|Social:<br/>6) RockCity Drinks(Social) - ¥8.50<br/>7) The Mooch(Social) - ¥13.99| pass | | change source code: give a check on user's input and print error message if invalid. If valid ,state the category name first,fix index|
 
 #### Function: public static void main(String[] args)
 

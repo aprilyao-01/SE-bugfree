@@ -78,7 +78,7 @@ class BoCAppTest {
 	// Function: CategoryOverview()
 	// Contributor: Xingyan Qu
 	@ParameterizedTest
-	@ValueSource(ints = { 0,1,2,3 })
+	@ValueSource(ints = { 1,2,3,4 })
 		void testListTransactionsForCategory(int catI) 
 		{
 			outContent.reset();
@@ -86,15 +86,15 @@ class BoCAppTest {
 			BoCApp first = new BoCApp();
 			first.setup();
 			first.ListTransactionsForCategory(catI);
-			if(catI==0)
-				assertEquals( "Unknown:\n1) Rent(Unknown) - ¥850.00\n",outContent.toString());
 			if(catI==1)
+				assertEquals( "Unknown:\n1) Rent(Unknown) - ¥850.00\n",outContent.toString());
+			if(catI==2)
 				assertEquals( "Bills:\n2) Phone Bill(Bills) - ¥37.99\n"
 						    + "3) Electricity Bill(Bills) - ¥75.00\n" ,outContent.toString());
-			if(catI==2)
+			if(catI==3)
 				assertEquals( "Groceries:\n4) Sainsbury's Checkout(Groceries) - ¥23.76\n"
 						    + "5) Tesco's Checkout(Groceries) - ¥7.24\n" ,outContent.toString());
-			if(catI==3)
+			if(catI==4)
 				assertEquals( "Social:\n6) RockCity Drinks(Social) - ¥8.50\n"
 						    + "7) The Mooch(Social) - ¥13.99\n" ,outContent.toString());
 			outContent.reset();
