@@ -15,7 +15,7 @@ class BoCTransactionTest {
 	@Test
 	void testBoCTransaction() {
 		BoCTransaction myAnswer1 = new BoCTransaction();
-		assertEquals("[Pending Transaction]",myAnswer1);
+		assertEquals("[Pending Transaction]",myAnswer1.transactionName());
 	}
     // test function: BoCTransaction
 	// tester: Jiachen Zhang
@@ -122,7 +122,7 @@ class BoCTransactionTest {
 		BigDecimal value2 = new BigDecimal(-1.00);
 		BoCTransaction account2 = new BoCTransaction();
 		account2.setTransactionValue(value2);
-		assertEquals(account2.transactionValue(),value2);
+		assertEquals(account2.transactionValue(),null);
 		// unmormal test2:
 		// set again
 		BigDecimal value3 = new BigDecimal(500.00);

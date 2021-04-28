@@ -171,28 +171,12 @@ class BoCCategoryTest {
 		//set a new spend
 		newSpend = new BigDecimal("234.00");
 		fourth.addExpense(newSpend);
-		
-		if(newSpend.compareTo(new BigDecimal("0.00")) == 1) {
-			
-			 assertEquals(newSpend, fourth.CategorySpend());
-		}
-		else {
-			assertEquals(new BigDecimal("0.00"), fourth.CategorySpend());
-		}
+		assertEquals(newSpend,fourth.CategorySpend());
 		
 		 //set a remove
 		 BigDecimal remove = new BigDecimal("-300.00");
 		 fourth.removeExpense(remove);
-		 
-		 if(remove.compareTo(newSpend) == -1 && remove.compareTo(new BigDecimal("0.00")) == 1) {
-			 BigDecimal result = newSpend.subtract(remove);
-			 assertEquals(result, fourth.CategorySpend());
-		 }
-		 else 
-		 {
-			 assertEquals(newSpend, fourth.CategorySpend());
-		 }
-
+		 assertEquals(newSpend,fourth.CategorySpend());
 	}
 
 

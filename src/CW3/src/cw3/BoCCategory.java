@@ -102,11 +102,22 @@ public class BoCCategory {
 	}
 
 	public void addExpense(BigDecimal valueToAdd) {
-		CategorySpend = CategorySpend.add(valueToAdd);
+		// Modified by Wangji Wei:
+		// add the limitation of valueToAdd which it must be positive.
+		if(valueToAdd.compareTo(new BigDecimal("0.00")) == -1) {
+			CategorySpend = CategorySpend.add(new BigDecimal("0.00"));
+		}
+		else {
+			CategorySpend = CategorySpend.add(valueToAdd);
+		}
 	}
 
 	public void removeExpense(BigDecimal valueToRemove) {
+		// Modified by Wangji Wei:
+		// add the limitation of valueToRemove which it must be positive and need to be less than the whole category spend.
+		if(valueToRemove.compareTo(new BigDecimal("0.00"))!= -1 && valueToRemove.compareTo(CategorySpend)==-1) {
 		CategorySpend = CategorySpend.subtract(valueToRemove);
+		}
 	}
 
 	public void resetBudgetSpend() {

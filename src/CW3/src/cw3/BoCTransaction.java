@@ -16,7 +16,8 @@ public class BoCTransaction {
 		transactionTime = null;
 		// modified by Jiachen Zhang
 		//it should create an empty transaction called “[Pending Transaction]”where the category is unknown.
-		if (transactionName == null)
+		
+		if (transactionName == null && transactionValue == null && transactionCategory==0)
 		{
 			transactionName = "[Pending Transaction]";
 		}
@@ -61,7 +62,7 @@ public class BoCTransaction {
 	public void setTransactionName(String tName) {
 		// modified by Wangji Wei:
 		// check if the transaction name is already exist and give a warning message and ignore the operation of set the name again.
-		if(transactionName != null) {
+		if(transactionName != "[Pending Transaction]") {
 			System.out.println("Already set the TransactionName.\n");
 			tName = transactionName;
 		}
