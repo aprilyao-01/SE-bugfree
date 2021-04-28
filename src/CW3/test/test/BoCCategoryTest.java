@@ -300,8 +300,8 @@ class BoCCategoryTest {
 		category.setCategoryName(name);
 		category.setCategoryBudget(budget);
 		category.addExpense(spent);
-		String expect1 = "testname(¥3000.00) - Est. ¥2573.42 (¥426.58 Remaining)";
-		String expect2 = "testname(¥3000.00) - Est. ¥3281.07 (¥281.07 Overspent)";
+		String expect1 = "testname(¥3000.00) - ¥2573.42 (¥426.58 Remaining)";
+		String expect2 = "testname(¥3000.00) - ¥3281.07 (¥281.07 Overspent)";
 		if (spent.compareTo(spent1) == 0) {
 			assertEquals(expect1,category.toString());
 		} else if (spent.compareTo(spent2) == 0) {

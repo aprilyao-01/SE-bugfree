@@ -1,5 +1,6 @@
 package cw3;
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 public class BoCCategory {
 	private String CategoryName;
@@ -30,8 +31,25 @@ public class BoCCategory {
 		return CategorySpend;
 	}
 
+	// Modified by: Siyu Yao
+	// Last modified time: 21/04/28 19:34
+	/*
+	 * Edit: 1)Add the do-while loop to make sure that the category name cannot be Unknown/blank/more than 15 char
+	 */
+	
 	public void setCategoryName(String newName) {
-		CategoryName = newName;
+		int n=0;
+		do {
+			if(newName.equalsIgnoreCase("Unknown") || newName.length() > 15 || newName.isBlank()) {
+				System.out.println("Nonconformity Catagory name, please inter again: ");
+				Scanner in = new Scanner(System.in);
+				newName = in.nextLine();
+				continue;
+			} else {
+				CategoryName = newName;
+				n+=1;
+			}
+		}while(n==0);	
 	}
 
 	public void setCategoryBudget(BigDecimal newValue) {
@@ -58,10 +76,25 @@ public class BoCCategory {
 		return remainingBudget;
 	}
 
+	/*
+	 * Modified by: Siyu Yao
+	 * Last modified time: 21/04/28 18:55
+	 * Edit: 1) Delete the 'Est' in return format, cause this information is useless
+	 * 		 2) Add the format when spent is larger than budget and return overspent format
+	 */
 	@Override
 	public String toString() {
-		return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
-				+ " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
+		if(CategoryBudget.compareTo(CategorySpend)!=-1) 		// if budget <= spend return format should be 'Overspent'
+		{
+			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - ¥" + CategorySpend.toPlainString()
+			+ " (¥" + getRemainingBudget().toPlainString() + " Overspent)";
+		}
+		else				// if budget > spend return format should be 'Remaining'										
+		{
+			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - ¥" + CategorySpend.toPlainString()
+			+ " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
+		}
+		
 	}
 
 }
