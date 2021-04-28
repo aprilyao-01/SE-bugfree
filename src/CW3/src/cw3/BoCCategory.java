@@ -30,10 +30,9 @@ public class BoCCategory {
 	public BigDecimal CategorySpend() {
 		return CategorySpend;
 	}
-
-	// Modified by: Siyu Yao
-	// Last modified time: 21/04/28 19:34
 	/*
+	 * Modified by: Siyu Yao
+	 * Last modified time: 21/04/28 19:34
 	 * Edit: 1)Add the do-while loop to make sure that the category name cannot be Unknown/blank/more than 15 char
 	 */
 	
