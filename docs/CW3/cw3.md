@@ -266,7 +266,7 @@ This function should loop through the transactions creating summaries for each c
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
-|1|21/04/26 18:55|"O"|1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)｜1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)｜ fail ｜ wrong fomat ｜ need fix this in ** Class: BoC Category ** toString()｜
+|1|21/04/26 18:55|"O"|1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)|1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)<br/>2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)<br/>3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)<br/>4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)| fail | wrong fomat | need fix this in ** Class: BoC Category ** toString()|
 
  
 
