@@ -110,26 +110,36 @@ public class BoCApp {
 
 	private static void AddTransaction(Scanner in) {
 		// modified by Jiachen Zhang:
-		// add optionally a category, show “[Transaction Name](¥value)was added to [Category Name]”
+		// add optionally a category, show Transaction Name](value)was added to [Category Name]
+		int n = 0;
 		System.out.println("What is the title of the transaction?");
-		in.nextLine(); // to remove read-in bug
+		in.nextLine(); // to removAe read-in bug
 		String title = in.nextLine();
 		System.out.println("What is the value of the transaction?");
 		BigDecimal tvalue = new BigDecimal(in.nextLine());
+		do
+		{
 		System.out.println("What is the category ID of the transaction?");
 		System.out.println("(Press \"Enter\" will set to \"Unknow\" automatically)");
 		String tcategory = in.nextLine();
-		if (tcategory == "")
+		int a = -1;
+		if (tcategory.length() == 0 )
 		{
 			UserTransactions.add(new BoCTransaction(title, tvalue, 0));
 			System.out.println("[" + title + "]" + "(¥" + tvalue + ") " + "was added to " + "[Unknow]");
+			n = n +1 ;
 		}
 		else
 		{
-		int a = Integer.parseInt(tcategory);
+			 a = Integer.parseInt(tcategory);
+		}
+		if(a >= 0 && a <= UserCategories.size())
+		{
 		UserTransactions.add(new BoCTransaction(title, tvalue, a));
 		System.out.println("[" + title + "]" + "(¥" + tvalue + ") " + "was added to " + "[" + tcategory + "]");
+		n = n +1;
 		}
+		}while (n ==0);
 	}
 	private static void ChangeTransactionCategory(Scanner in) {
 		System.out.println("Which transaction ID?");
