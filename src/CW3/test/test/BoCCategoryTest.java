@@ -226,13 +226,7 @@ class BoCCategoryTest {
 	void testSetCategoryBudget(BigDecimal newValue) {
 		BoCCategory category = new BoCCategory();
 		category.setCategoryBudget(newValue);
-		if(category.CategoryBudget().compareTo(new BigDecimal("0.00")) == 1) {
-			assertTrue(category.CategoryBudget().compareTo(new BigDecimal("0.00")) == 1);
-		}else {
-			
-		}
-		
-		
+		assertTrue(category.CategoryBudget().compareTo(new BigDecimal("0.00")) == 1);
 	}
 
 	//Test Function: public void addExpense(BigDecimal valueToAdd)
