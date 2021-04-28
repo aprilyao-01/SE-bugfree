@@ -1,11 +1,13 @@
 package test;
-import cw3.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -14,22 +16,46 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import cw3.BoCApp;
+import cw3.BoCCategory;
+import cw3.BoCTransaction;
+
 
 class BoCAppTest {
 
 	private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
+	
+	
+	// Following variables are created by Siyu Yao
+	BoCApp boc;
+	private static BigDecimal beCat;	// refer to  CategorySpend before and after method calls
+	private static BigDecimal afCat;
+	private static int beTran;			// refer to  transactionCategory before and after method calls
+	private static int afTran;
+	private static ArrayList<BoCTransaction> beforeTran;	// This is the original array list that not be modified
+	private static ArrayList<BoCCategory> beforeCat;
+	private static ArrayList<BoCTransaction> afterTran;		// This is the new array list after modified
+	private static ArrayList<BoCCategory> afterCat;
+	private static String confirmation;
+	
+	
+	
 	@BeforeAll
 	public static void setUpStreams() 
 	{
-	System.setOut(new PrintStream(outContent));
+		System.setOut(new PrintStream(outContent));
+		BoCApp.setup();
+		confirmation = "The new category it belongs to ";
 	}
 	@AfterAll
 	public static void cleanUpStreams() 
@@ -37,6 +63,19 @@ class BoCAppTest {
 	      System.setOut(null);
 	}
 
+	
+	@BeforeEach
+	public void setUp() {
+		boc = new BoCApp();
+		outContent.reset();	
+	}
+	
+	@AfterEach
+	public void tearDown() {
+		boc = null;
+	}
+	
+	
 
 	// Function: ListTransactions()
 	// Contributor: Xingyan Qu
@@ -153,6 +192,61 @@ class BoCAppTest {
 	}
 		
 
+	// Function: private static void ChangeTransactionCategory(Scanner in)
+	// Contributor: Siyu Yao
+	
+	static Stream<Arguments>arguments(){
+		return Stream.of(
+				Arguments.of((Object) new Scanner ("\n1\n2\n"), 1, 2),
+				Arguments.of((Object) new Scanner ("\n2\n2\n"), 2, 2),
+				Arguments.of((Object) new Scanner ("\n4\n3\n"), 4, 3)
+				//Arguments.of((Object) new Scanner ("\n \n\n"),'')
+		);
+	}
+	
+	@ParameterizedTest
+	@MethodSource("arguments")
+	void testChangeTransactionCategory(Scanner in, int tID, int newCat)throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+   		
+		// Get the original value after created class
+		beforeTran = boc.UserTransactions;		// This is the original array list that not be modified
+		beforeCat = boc.UserCategories;
+		beTran = beforeTran.get(tID).transactionCategory();	 // This is the original transaction category that before method calls (not be modified)
+		beCat = beforeCat.get(newCat).CategorySpend();		// This is the original category spend that before method calls (not be modified)
+		
+		
+		// Get the private method and call the method
+		Method method = boc.getClass().getDeclaredMethod("ChangeTransactionCategory", Scanner.class);
+		method.setAccessible(true);
+   		method.invoke(boc, in);
+   		
+   		
+   		// Get the modified value after method calls
+   		afterTran = boc.UserTransactions;		// This is the new array list after modified
+   		afterCat = boc.UserCategories;
+   		afTran = afterTran.get(tID).transactionCategory();		// This is the new transaction category that after method calls (be modified)
+   		afCat = afterCat.get(newCat).CategorySpend();			// This is the new category spend that after method calls (be modified)
+   		
+   		
+   		/*
+   		 *  After the method calls, the CategorySpend and transactionCategory are changed,
+   		 *  so before and after CategorySpend and transactionCategory should not be equal 
+   		 */
+   		assertNotEquals(0, beCat.compareTo(afCat));
+   		assertNotEquals(beTran, afTran);
+   		
+   		
+   		/*
+   		 * The ClassDescription.pdf specify that this function should print a confirmation of the name of the new category it belongs to,
+   		 * so the print information should contains String "The new category it belongs to ",
+   		 * which has be initialized as 'String confirmation'
+   		 */
+   		assertThat(outContent.toString(), containsString(confirmation)); 
+  
+	}
+	
+	
+	
 	
 	// Function: AddCategory(Scanner in)
 	// Contributor: Jing ZHANG
