@@ -318,7 +318,7 @@ class BoCCategoryTest {
 	//Test Function: @Override public String toString()
 	//Tester: Siyu YAO
 	@ParameterizedTest
-	@CsvSource({"testname, 3000.00, 2573.42","testname2, 3000.00, 3281.07"})
+	@CsvSource({"testname, 3000.00, 2573.42","testname, 3000.00, 3281.07"})
 	void testtoString(String name, BigDecimal budget, BigDecimal spent) {
 		/* 
 		 * The first value of spent is less than budget
