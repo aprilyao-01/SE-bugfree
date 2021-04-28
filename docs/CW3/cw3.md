@@ -248,6 +248,24 @@ Here I set budget to be 3000.00, plus before each round of test, add a new spend
 |3|21/4/28 19:00|title = "abc" , value = "600" , Category = 1| What is the title of the transaction? What is the value of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknow\" automatically)" "[abc](¥1000) was added to [Unknow]" |What is the title of the transaction? What is the value of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknow\" automatically)" "[abc](¥1000) was added to [Unknow]"|Passed|\ |\ |
 
 
+#### Function: private static void ChangeTransactionCategory(Scanner in)
+
+##### Contributor: Siyu YAO
+
+|Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
+|----|----|------|----------------|------------|------|--------------|------|
+|1|21/04/26 20:52|new Scanner ("\n1\n2\n");   Created two ArrayList object to store UserCategories before and after method calls;   ArrayLista.equals(ArrayListb)|NotEquals|Equals|Failed||Change to compare the categories' spend not equal|
+|2|21/04/26 21:20|new Scanner ("\n1\n2\n");|The categories' spend should not equal before and after method calls|Equals|Failed|Two categories are both created after the method calls|Change one categorire to be created before mathod calls|
+|3|21/04/27 15:57|new Scanner ("\n1\n2\n");|The categories' spend should not equal before and after method calls|NotEquals|Passed|||
+|4|21/04/27 16:40|new Scanner ("\n1\n2\n"), 1, 2; new Scanner ("\n2\n2\n"), 2, 2|categorieSpend and transactionCategory should not equal before and after method calls|NotEquals|Passed|||
+|5|21/04/27 17:20|new Scanner ("\n1\n2\n"), 1, 2; new Scanner ("\n2\n2\n"), 2, 2;   assertThat(outContent.toString(), containsString(confirmation));|The printed information should contains some confirmation information|Not contain|Failed|The method assertThat is deprecated|import static org.hamcrest.MatcherAssert.assertThat;|
+|6|21/04/27 17:24|new Scanner ("\n1\n2\n"), 1, 2; new Scanner ("\n2\n2\n"), 2, 2;   assertThat(outContent.toString(), containsString(confirmation));|The printed information should contains some confirmation information|Not contain|Failed|The program cannot print the confirmation because it didn't have the relevant code.|**Need to improve the Java code, add new function**|
+|7|21/04/29 1:04|new Scanner ("\n1\n2\n"), 1, 2; new Scanner ("\n2\n2\n"), 2, 2;   assertThat(outContent.toString(), containsString(confirmation));|The printed information should contains some confirmation information|The printed information should contains some confirmation information|Passed|||
+
+
+
+
+
 #### Function: private static void AddCategory(Scanner in)
 
 ##### Contributor: Jing ZHANG
@@ -262,7 +280,7 @@ Here I set budget to be 3000.00, plus before each round of test, add a new spend
 
 #### Function: public static void ListTransactions()
 
-##### Tester: Xingyan Qu
+##### Contributor: Xingyan Qu
 
 This function should : loop through all the transactions, listing them out to the user in format: - E.g. “SanJiang shopping (groceries) - ¥186.90
 
@@ -274,7 +292,7 @@ This function should : loop through all the transactions, listing them out to th
 
 #### Function: public static void CategoryOverview()
 
-##### Tester: Xingyan Qu
+##### Contributor: Xingyan Qu
 
 This function should loop through the transactions creating summaries for each category, and then print out a list of categories and how much has been spent in that category in total, e.g.
 			Bills (Budget: ¥2000.00) - ¥1532.98 (¥467.02 Remaining)
@@ -288,7 +306,7 @@ This function should loop through the transactions creating summaries for each c
 
 #### Function: 	public static void ListTransactionsForCategory(int chosenCategory) 
 
-##### Tester: Xingyan Qu
+##### Contributor: Xingyan Qu
 
 This function should take a category ID as a parameter, and uses it to filter the transactions for the given category. The list of transactions should be like the list transactions function, plus stating a category first.
 
@@ -306,7 +324,7 @@ This function should take a category ID as a parameter, and uses it to filter th
 
 #### Function: public static void main(String[] args)
 
-##### Tester: Xingyan Qu
+##### Contributor: Xingyan Qu
 
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
