@@ -132,6 +132,9 @@ public class BoCApp {
 		BoCCategory temp2 = UserCategories.get(newCat);
 		temp2.addExpense(temp.transactionValue());
 		UserCategories.set(newCat, temp2);
+		System.out.println("The new category it belongs to is: "+temp2.CategoryName());
+		System.out.println("[Remove done]:");
+		CategoryOverview();
 	}
 
 	private static void AddCategory(Scanner in) {

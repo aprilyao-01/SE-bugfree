@@ -127,15 +127,15 @@ public class BoCCategory {
 		* Edit: 1) Delete the 'Est' in return format, cause this information is useless
 		* 		 2) Add the format when spent is larger than budget and return overspent format
 		*/
-		if(CategoryBudget.compareTo(CategorySpend)!=-1) 		// if budget <= spend return format should be 'Overspent'
+		if(CategoryBudget.compareTo(CategorySpend)==-1) 		// if budget <= spend return format should be 'Overspent'
 		{
 			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - ¥" + CategorySpend.toPlainString()
-			+ " (¥" + getRemainingBudget().toPlainString() + " Overspent)";
+			+ " (¥" + getRemainingBudget().abs().toPlainString() + " Overspent)";
 		}
 		else				// if budget > spend return format should be 'Remaining'										
 		{
 			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - ¥" + CategorySpend.toPlainString()
-			+ " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
+			+ " (¥" + getRemainingBudget().abs().toPlainString() + " Remaining)";
 		}
 		
 	}
