@@ -44,6 +44,8 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |1|21/04/17 20:01|String name1 = "aaaa"; BoCTransaction account1 = new BoCTransaction();account1.setTransactionName(name1);|aaaa|aaaa|Passed|\ |\ |
 |2|21/04/17 20:18|String name2 = "abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde"; BoCTransaction account2 = new BoCTransaction(); account2.setTransactionName(name2);|abcdeabcdeabcdeabcdeabcde|abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde|Failed|The name is limited to 25 characters but the function does not recognize that limitation.|change the code in BoCTransaction to limit the characters.|
 |3|21/04/17 20:26|String name3 = "abcde"; String name4 = "abcd";BoCTransaction account3 = new BoCTransaction();account3.setTransactionName(name3);account3.setTransactionName(name4);|abcde|abcd|Failed|The name only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input name.|
+|4|21/04/26 19:45|String name2 = "abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde"; BoCTransaction account2 = new BoCTransaction(); account2.setTransactionName(name2);|abcdeabcdeabcdeabcdeabcde|abcdeabcdeabcdeabcdeabcde|passed|\ |if the length of transactionName is bigger than 25,cut the string to 25 characters at maximum.|
+|5|21/04/26 20:12|String name3 = "abcde"; String name4 = "abcd";BoCTransaction account3 = new BoCTransaction();account3.setTransactionName(name3);account3.setTransactionName(name4);|abcde|abcde|passed|\ |if the transaction is not null then continue the next move else do not set the transactionname again.|
 
 #### Function: setTransactionValue
 ##### Contributor: Wangji Wei
@@ -52,6 +54,8 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |1|21/04/17 20:34|BigDecimal value1 = new BigDecimal(8888.00); BoCTransaction account1 = new BoCTransaction(); account1.setTransactionValue(value1);|8888.00|8888.00|Passed|\ |\ |
 |2|21/04/17 20:38|BigDecimal value2 = new BigDecimal(-1.00); BoCTransaction account2 = new BoCTransaction(); account2.setTransactionValue(value2);|-1.00|null|Failed|The value cannot be negative but the function cannot recognize the limitation|change the code in BoCTransaction to limit the value that must be positive|
 |3|21/04/17 20:45|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|500|800|Failed|The value only can be set once but the function does not recognize the limitation.|change the code in BoCTransaction to limit the time of input value.|
+|4|21/04/26 20:25|BigDecimal value2 = new BigDecimal(-1.00); BoCTransaction account2 = new BoCTransaction(); account2.setTransactionValue(value2);|null|null|passed|\ |show the warning "The transaciton value cannot be negative.|
+|5|21/04/26 21:00|BigDecimal value3 = new BigDecimal(500.00);BigDecimal value4 = new BigDecimal(800.00); BoCTransaction account3 = new BoCTransaction(); account3.setTransactionValue(value3); account3.setTransactionValue(value4);|500|500|passed|\ |if the transactionValue is not null then continue the next move else do not set the transaction value again.|
 
 #### Function: setTransactionCategory
 ##### Contributor: Wangji Wei
