@@ -64,7 +64,7 @@ public class BoCCategory {
 		int n=0;
 		do {
 			if(newName.equalsIgnoreCase("Unknown") || newName.length() > 15 || newName.isBlank()) {
-				System.out.println("Nonconformity Catagory name, please inter again: ");
+				System.out.println("Nonconformity Catagory name, please enter again: ");
 				Scanner in = new Scanner(System.in);
 				newName = in.nextLine();
 				continue;
