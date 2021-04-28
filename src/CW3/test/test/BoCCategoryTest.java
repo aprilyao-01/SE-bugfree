@@ -71,13 +71,14 @@ class BoCCategoryTest {
 	//Test Function: public BoCCategory(String newTitle)
 	//Tester: Jing ZHANG
 	//First test is aims to test if the new category could be added successfully
-	@Test
-	void testBoCCategoryString1() {
-		BoCCategory category = new BoCCategory("Cloth");
+	@ParameterizedTest
+	@ValueSource(strings = {"Cloth", "Unknown"})
+	void testBoCCategoryString1(String newTitle) {
+		BoCCategory category = new BoCCategory(newTitle);
 		BigDecimal budget = new BigDecimal("0.00");
 		BigDecimal spend = new BigDecimal("0.00");
 
-		assertEquals("Cloth", category.CategoryName());
+		assertEquals(newTitle, category.CategoryName());
 		
 		//This is to test the rest of the two attribute
 		assertEquals(budget, category.CategoryBudget());
@@ -89,7 +90,7 @@ class BoCCategoryTest {
 	//Tester: Jing ZHANG
 	//Second test is aims to test if the function could handle illegal input	
 	@ParameterizedTest
-	@ValueSource(strings = {"This string is more than 15 characters", "Unknown"})
+	@ValueSource(strings = {"This string is more than 15 characters"})
 	@NullSource
 	void testBoCCategoryString2(String newTitle) {
 		BoCCategory category = new BoCCategory(newTitle);
