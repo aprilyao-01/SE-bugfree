@@ -14,11 +14,30 @@ public class BoCTransaction {
 		transactionValue = null;
 		transactionCategory = 0;
 		transactionTime = null;
+		// modified by Jiachen Zhang
+		//it should create an empty transaction called “[Pending Transaction]”where the category is unknown.
+		if (transactionName == null)
+		{
+			transactionName = "[Pending Transaction]";
+		}
 	}
 
 	public BoCTransaction(String tName, BigDecimal tValue, int tCat) {
+		// modified by Jiachen Zhang:
+		// name should be limited to 25 characters, only set once.
+		if (tName.length()>25) {
+			tName = tName.substring(0, 25);
+		}
+		// modified by Jiachen Zhang
+		// value should be greater than 0, only set once.
 		transactionName = tName;
-		transactionValue = tValue;
+		if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
+				transactionValue = tValue;
+		}
+		else
+		{
+			transactionValue = null;
+		}
 		transactionCategory = tCat;
 		transactionTime = new Date();
 	}
@@ -83,10 +102,20 @@ public class BoCTransaction {
 			transactionTime = tTime;
 		}
 	}
-
+	
+	// modified by Jiachen Zhang:
+	// Check to see whether the current transaction has a name and a value, and thus whether either the name or the value can be set.
+	public int  isComplete() {
+		if (transactionValue == null || transactionName == null || transactionName == "[Pending Transaction]")
+			return 1;
+		else
+			return 2;
+	}
+	
 	@Override
+	// modified by Jiachen Zhang:
 	public String toString() {
-		return transactionName + " - ¥" + transactionValue.toString();
+		return transactionName + "(" +transactionCategory + ")" + " - ¥" + transactionValue.toString();
 	}
 
 }

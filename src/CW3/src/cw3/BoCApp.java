@@ -109,15 +109,28 @@ public class BoCApp {
 	}
 
 	private static void AddTransaction(Scanner in) {
+		// modified by Jiachen Zhang:
+		// add optionally a category, show “[Transaction Name](¥value)was added to [Category Name]”
 		System.out.println("What is the title of the transaction?");
 		in.nextLine(); // to remove read-in bug
 		String title = in.nextLine();
 		System.out.println("What is the value of the transaction?");
 		BigDecimal tvalue = new BigDecimal(in.nextLine());
-		UserTransactions.add(new BoCTransaction(title, tvalue, 0));
-		System.out.println("[Transaction added]");
+		System.out.println("What is the category ID of the transaction?");
+		System.out.println("(Press \"Enter\" will set to \"Unknow\" automatically)");
+		String tcategory = in.nextLine();
+		if (tcategory == "")
+		{
+			UserTransactions.add(new BoCTransaction(title, tvalue, 0));
+			System.out.println("[" + title + "]" + "(¥" + tvalue + ") " + "was added to " + "[Unknow]");
+		}
+		else
+		{
+		int a = Integer.parseInt(tcategory);
+		UserTransactions.add(new BoCTransaction(title, tvalue, a));
+		System.out.println("[" + title + "]" + "(¥" + tvalue + ") " + "was added to " + "[" + tcategory + "]");
+		}
 	}
-
 	private static void ChangeTransactionCategory(Scanner in) {
 		System.out.println("Which transaction ID?");
 		in.nextLine();

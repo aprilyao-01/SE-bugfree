@@ -6,6 +6,8 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class BoCTransactionTest {
 	// test function: BoCTransaction
@@ -17,12 +19,30 @@ class BoCTransactionTest {
 	}
     // test function: BoCTransaction
 	// tester: Jiachen Zhang
-	@Test
-	void testBoCTransaction1() {
+	@ParameterizedTest
+	@ValueSource(ints = {0,1,2})
+	void testBoCTransaction1(int new1) {
+		
+		if(new1 ==0)
+		{
 		BigDecimal value = new BigDecimal("22");
 		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
 		Date myDate = new Date();
 		assertEquals(myDate,myAnswer1.transactionTime());
+		}
+		
+		if(new1 ==1)
+		{
+		BigDecimal value = new BigDecimal("22");
+		BoCTransaction myAnswer2 = new BoCTransaction("abcdfghjkloiuygfdfasfsssdfrfrwfwwedewfds", value, 1);
+		assertEquals("abcdfghjkloiuygfdfasfsssd", myAnswer2.transactionName());
+		}
+		if(new1 == 2)
+		{
+		BigDecimal value2 = new BigDecimal("-10");
+		BoCTransaction myAnswer3 = new BoCTransaction("abc", value2, 1);
+		assertEquals(null, myAnswer3.transactionValue());
+		}
 	}
 	// test function: TransactionName
 	// tester: Wangji Wei
@@ -132,18 +152,27 @@ class BoCTransactionTest {
 	}
 	// test function: isComplete
 	// tester: Jiachen Zhang
-	@Test
-	void testIsComplete() {
-		BigDecimal value = new BigDecimal("22");
-		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
-		assertEquals(1,myAnswer1.iscomplete());
+	@ParameterizedTest
+	@ValueSource(ints = {0,1})
+	void testIsComplete(int new1) {
+		if(new1 ==0)
+		{
+			BigDecimal value = new BigDecimal("22");
+			BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
+			assertEquals(2,myAnswer1.isComplete());
+		}
+		if(new1 ==1)
+		{
+			BoCTransaction myAnswer1 = new BoCTransaction();
+			assertEquals(1,myAnswer1.isComplete());
+		}
 	}
 	// test function: toString
 	// tester: Jiachen Zhang
 	@Test
 	void testToString() {
-		BigDecimal value = new BigDecimal("22");
-		BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
-		assertEquals(myAnswer1.transactionName() + " - ¥" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
+	BigDecimal value = new BigDecimal("22");
+	BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
+	assertEquals(myAnswer1.transactionName() + "(" + myAnswer1.transactionCategory() + ")" + " - ¥" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
 	}
 }
