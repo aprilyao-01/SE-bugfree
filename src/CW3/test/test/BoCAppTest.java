@@ -71,6 +71,7 @@ class BoCAppTest {
 	}
 
 	// testing if this function work well with normal input
+	// This test aims to test whether it could add the new category successfully or not
 	@ParameterizedTest
 	@MethodSource("normalIn")
 	public void AddCategoryTests1(Scanner in) throws IllegalAccessException,
@@ -88,17 +89,45 @@ class BoCAppTest {
 		m.invoke(testforBC, in);
 		test = testforBC.UserCategories;
 		
-		assertEquals("What is the title of the category?"+System.lineSeparator() +
-                     "What is the budget for this category?"+System.lineSeparator() +
-				     "[Category added]"+System.lineSeparator() +
-				     "1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)" + System.lineSeparator() +
-				     "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)" + System.lineSeparator() +
-				     "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)" + System.lineSeparator() +
-				     "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)" + System.lineSeparator() +
-		             "5) Cloth(¥100.00) - Est. ¥0.00 (¥100.00 Remaining)" + System.lineSeparator(), outContent.toString());
+		// test whether it could add the new category successfully or not
 		BigDecimal expectedcb = new BigDecimal("100.00");
 		assertEquals("Cloth", test.get(4).CategoryName());
 		assertEquals(expectedcb, test.get(4).CategoryBudget());
+		
+		outContent.reset();
+		
+		 
+	}
+	
+	// testing if this function work well with normal input
+	// This test aims to test if this function have the correct output
+	@ParameterizedTest
+	@MethodSource("normalIn")
+	public void AddCategoryTests2(Scanner in) throws IllegalAccessException,
+	IllegalArgumentException,
+	InvocationTargetException,
+	NoSuchMethodException,
+	SecurityException {
+		// create object
+		BoCApp testforBC = new BoCApp();
+		ArrayList<BoCCategory> test = new ArrayList<BoCCategory>();
+		
+		BoCApp.setup();
+		Method m = BoCApp.class.getDeclaredMethod("AddCategory", Scanner.class);//declare which method you want to test
+		m.setAccessible(true);//set the accessible to true, then you can access the method
+		m.invoke(testforBC, in);
+		test = testforBC.UserCategories;
+		
+		// test if this function have the correct output
+		assertEquals("What is the title of the category?"+System.lineSeparator() +
+                     "What is the budget for this category?"+System.lineSeparator() +
+				     "[Category added]"+System.lineSeparator() +
+				     "1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)" + System.lineSeparator() +
+				     "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)" + System.lineSeparator() +
+				     "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)" + System.lineSeparator() +
+				     "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)" + System.lineSeparator() +
+		             "5) Cloth(¥100.00) - ¥0.00 (¥100.00 Remaining)" + System.lineSeparator(), outContent.toString());
+		
 		outContent.reset();
 		
 		 
@@ -111,7 +140,7 @@ class BoCAppTest {
 	//3)test if it's not allowed to add a new category with a normal title and a abnormal budget(<=0)
 	@ParameterizedTest
 	@MethodSource("abnormalIn")
-	public void AddCategoryTests2(Scanner in) throws IllegalAccessException,
+	public void AddCategoryTests3(Scanner in) throws IllegalAccessException,
 	IllegalArgumentException,
 	InvocationTargetException,
 	NoSuchMethodException,
