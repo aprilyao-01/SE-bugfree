@@ -12,11 +12,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Stream;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 
 class BoCAppTest {
@@ -129,6 +132,11 @@ class BoCAppTest {
 	
 	// Function: AddCategory(Scanner in)
 	// Contributor: Jing ZHANG
+	/* Before this Integration test, we have already test the method in BoCCategory
+	 * Thus, in this Integration test, we will not test the abnormal input
+	 * because the method in BoCCategory should handle illegal input
+	 * creating input streams for normal input and abnormal input
+	 */
 	
 	// creating input streams for normal input and abnormal input
 	static Stream<Arguments> normalIn(){
@@ -197,38 +205,12 @@ class BoCAppTest {
 		assertEquals("What is the title of the category?"+System.lineSeparator() +
                      "What is the budget for this category?"+System.lineSeparator() +
 				     "[Category added]"+System.lineSeparator() +
-				     "1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)" + System.lineSeparator() +
+				     "1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)" + System.lineSeparator() +
 				     "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)" + System.lineSeparator() +
 				     "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)" + System.lineSeparator() +
 				     "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)" + System.lineSeparator() +
 		             "5) Cloth(¥100.00) - ¥0.00 (¥100.00 Remaining)" + System.lineSeparator(), outContent.toString());
 		
-		outContent.reset();
-		
-		 
-	}
-	
-	//testing if this function work well with abnormal inputs
-	//three cases:
-	//1)test if it's not allowed to add a new category with a abnormal title(greater than 15 characters)
-	//2)test if it's not allowed to add a new category with a abnormal title(greater than 15 characters) and a abnormal budget(<=0)
-	//3)test if it's not allowed to add a new category with a normal title and a abnormal budget(<=0)
-	@ParameterizedTest
-	@MethodSource("abnormalIn")
-	public void AddCategoryTests3(Scanner in) throws IllegalAccessException,
-	IllegalArgumentException,
-	InvocationTargetException,
-	NoSuchMethodException,
-	SecurityException {
-		//create object
-		BoCApp testforBC = new BoCApp();
-		ArrayList<BoCCategory> test = new ArrayList<BoCCategory>();	
-		BoCApp.setup();
-		Method m = BoCApp.class.getDeclaredMethod("AddCategory", Scanner.class);//declare the AddCategory method 
-		m.setAccessible(true);//set the accessible to true
-		m.invoke(testforBC, in);
-		test = BoCApp.UserCategories;
-		assertTrue(test.get(4) == null); //test to see if the method create the wrong category
 		outContent.reset();
 		
 		 
