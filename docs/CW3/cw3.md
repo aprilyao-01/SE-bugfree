@@ -98,9 +98,11 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|-------------|------|
 |1|21/04/20 19:02|"Cloth"|category.CategoryName = "Cloth"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|category.CategoryName = "Cloth"; category.CategoryBudget = 0.00;  category.CategoryBudget = 0.00;|Passed|\ | \|
-|2|21/04/20 19:10|"This string is more than 15 characters"|error|category.CategoryName = "This string is more than 15 characters"; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|when inputting the string more than 15 characters, the program won't throw out the expectation.|**Need to improve the Java code**|
-|3|21/04/20 19:12|NULL|error|category.CategoryName = NULL; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|when inputting null, the program won't throw out the expectation.|**Need to improve the Java code**|
-|4|21/04/22 18:40|Unknown|error|Create a category named '0.00'|Failed|when inputting Unknown, the program won't throw out the expectation.|**Need to improve the Java code**|
+|2|21/04/20 19:10|"This string is more than 15 characters"|error|category.CategoryName = "This string is more than 15 characters"; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|when inputting the string more than 15 characters, the program won't throw out the expectation.|Change the source code, use do while to to avoid user input illegal category name|
+|3|21/04/20 19:12|NULL|"Title could not be NULL, please enter again:"|category.CategoryName = NULL; category.CategoryBudget =   0.00;  category.CategoryBudget = 0.00;|Failed|when inputting null, the program won't throw out the expectation.|Change the source code, use do while to to avoid user input illegal category name|
+|4|21/04/22 18:40|Unknown|category.CategoryName = "Unknown"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|category.CategoryName = "Unknown"; category.CategoryBudget = 0.00; category.CategoryBudget = 0.00;|Passed|\|\|
+|5|21/04/28 20:25|"This string is more than 15 characters"|"Title could not be more than 15 characters, please enter again:"|"Title could not be more than 15 characters, please enter again:"|Passed|\|\|
+|6|21/04/28 20:25|NULL|"Title could not be NULL, please enter again:"|"Title could not be NULL, please enter again:"|Passed|\|\|
 
 #### Function: public String CategoryName() 
 
