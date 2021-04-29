@@ -85,6 +85,11 @@ public class BoCApp {
 	}
 
 	public static void ListTransactions() {
+		/*
+		* Modified by: Xingyan Qu
+		* Last modified time: 21/04/29 10:34
+		* Edit: fix wrong print out format: add category name right after transaction name
+		*/
 		for (int x = 0; x < UserTransactions.size(); x++) {
 			BoCTransaction temp = UserTransactions.get(x);
 			System.out.println((x + 1) + ") " + temp.transactionName() + "(" + UserCategories.get(temp.transactionCategory()).CategoryName() + ")" + " - ¥" + temp.transactionValue().toString() );
