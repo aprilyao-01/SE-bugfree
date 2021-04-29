@@ -90,7 +90,7 @@ Added three columns: *"Time"* represents when the test is run, *"Failure reason"
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|--------------|------|
 |1|21/04/19 19:30|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|abc - ¥22|abc - ¥22|Passed|\ |\ |
-|2|21/04/28 19:30|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|abc(1) - ¥22|abc - ¥22|Passed|\ |\ |
+|2|21/04/28 19:30|BigDecimal value = new BigDecimal("22");BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);|abc - ¥22|abc - ¥22|Passed|\ |\ |
 
 ### Class: BoC Category
 
@@ -244,8 +244,8 @@ Here I set budget to be 3000.00, plus before each round of test, add a new spend
 |Test|Time|Inputs|Expected Outcome|Test Outcome|Result|Failure reason|Change|
 |----|----|------|----------------|------------|------|------------|------|
 |1|21/4/27 19:00|title = "abc" , value = "600" , Category = 1|What is the title of the transaction? What is the value of the transaction? [abc(1000)was added to 1]|What is the title of the transaction? What is the value of the transaction? [Transaction added]|Failed|they are not equal|add optionally a category, show “[Transaction Name](¥value)was added to [Category Name]”|
-|2|21/4/28 19:00|title = "abc" , value = "600" , Category = 1| What is the title of the transaction? What is the value of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknow\" automatically)" "[abc](¥1000) was added to [1]" |What is the title of the transaction? What is the value of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknow\" automatically)" "[abc](¥1000) was added to [1]"|Passed|\ |\ |
-|3|21/4/28 19:00|title = "abc" , value = "600" , Category = 1| What is the title of the transaction? What is the value of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknow\" automatically)" "[abc](¥1000) was added to [Unknow]" |What is the title of the transaction? What is the value of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknow\" automatically)" "[abc](¥1000) was added to [Unknow]"|Passed|\ |\ |
+|2|21/4/28 19:00|title = "abc" , value = "600" , Category = 1| What is the title of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknown\" automatically)" What is the value of the transaction?  "abc(¥600) was added to Unknow" |What is the title of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknown\" automatically)" What is the value of the transaction?  "abc(¥600) was added to Unknow" |Passed|\ |\ |
+|3|21/4/28 19:00|title = "abc" , value = "600" , Category = ""| What is the title of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknown\" automatically)" What is the value of the transaction?  "abc(¥600) was added to Unknow" |What is the title of the transaction? "What is the category ID of the transaction?" "(Press \"Enter\" will set to \"Unknown\" automatically)" What is the value of the transaction?  "abc(¥600) was added to Unknow" |Passed|\ |\ |
 
 
 #### Function: private static void ChangeTransactionCategory(Scanner in)
