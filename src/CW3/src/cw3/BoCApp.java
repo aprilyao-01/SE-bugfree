@@ -100,9 +100,15 @@ public class BoCApp {
 	}
 
 	public static void ListTransactionsForCategory(int chosenCategory) {
+		if(chosenCategory<1 || chosenCategory>UserCategories.size()){
+			System.out.println("Invalid index");
+		}else{
+			System.out.println(UserCategories.get(chosenCategory-1).CategoryName()+":\n");
+		}
+
 		for (int x = 0; x < UserTransactions.size(); x++) {
 			BoCTransaction temp = UserTransactions.get(x);
-			if (temp.transactionCategory() == chosenCategory) {
+			if (temp.transactionCategory() == chosenCategory-1) {
 				System.out.println((x + 1) + ") " + temp.toString());
 			}
 		}
