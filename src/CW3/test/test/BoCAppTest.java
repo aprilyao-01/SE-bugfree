@@ -168,9 +168,9 @@ class BoCAppTest {
         
 		assertEquals("What is the title of the transaction?" + System.lineSeparator() +      
 			         "What is the category ID of the transaction?" + System.lineSeparator() +
-			         "(Press \"Enter\" will set to \"Unknow\" automatically)" + System.lineSeparator() +
+			         "(Press \"Enter\" will set to \"Unknown\" automatically)" + System.lineSeparator() +
 			         "What is the value of the transaction?" + System.lineSeparator() + 
-			         "[abc](¥1000) was added to [Unknown]"+ System.lineSeparator(), outContent.toString());}
+			         "abc(¥1000) was added to Unknown"+ System.lineSeparator(), outContent.toString());}
 		if(new1 ==1)
 		{
 			BoCApp addt = new BoCApp();
@@ -186,9 +186,9 @@ class BoCAppTest {
 	        
 			assertEquals("What is the title of the transaction?" + System.lineSeparator() + 
 				         "What is the category ID of the transaction?" + System.lineSeparator() +
-				         "(Press \"Enter\" will set to \"Unknow\" automatically)" + System.lineSeparator() +
+				         "(Press \"Enter\" will set to \"Unknown\" automatically)" + System.lineSeparator() +
 				         "What is the value of the transaction?" + System.lineSeparator() + 
-				         "[abc](¥1000) was added to [Unknow]"+ System.lineSeparator(), outContent.toString());}
+				         "abc(¥1000) was added to Unknown"+ System.lineSeparator(), outContent.toString());}
 	}
 		
 
@@ -426,7 +426,7 @@ class BoCAppTest {
 	void testMain_3() {
 		outContent.reset();
 		
-		String input = "A"+"\r"+"drink"+"\r"+"50"+"\r"+"3";
+		String input = "A"+"\r"+"drink"+"\r"+"3"+"\r"+"50"+"\r"+"3";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         
@@ -442,14 +442,15 @@ class BoCAppTest {
         		+ "What is the category of the transaction?\n"
         		+"(Press \"Enter\" will set to \"Unknown\" automatically)\n"
         		+ "What is the value of the transaction?\n"
-        		+ "drink(¥50) was added to [Category Name]"
+        		+ "drink(¥50) was added to Groceries\n"
         		+ "\n"
         		+ "What do you want to do?\n"
         		+ " O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it\n"
         		+ ""
-        		+"Social:\n6) RockCity Drinks(Social) - ¥8.50\n"
-			    + "7) The Mooch(Social) - ¥13.99\n"
-        		+ "8) drink(Social) - ¥50\n "
+        		+"Groceries:\n4) Sainsbury's Checkout(Groceries) - 楼23.76\n"
+			    + "5) Tesco's Checkout(Groceries) - 楼7.24\n"
+        		+ "8) drink(Groceries) - 楼50\n "
+			    + "\n"
         		+ "What do you want to do?\n"
         		+ " O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it\n"
         		+ "",outContent.toString());

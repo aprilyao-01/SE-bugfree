@@ -135,8 +135,8 @@ public class BoCApp {
 		//System.out.println("What is the value of the transaction?");
 		//BigDecimal tvalue = new BigDecimal(in.nextLine());
 
-		System.out.println("What is the category ID of the transaction?");
-		System.out.println("(Press \"Enter\" will set to \"Unknow\" automatically)");
+		System.out.println("What is the category of the transaction?");
+		System.out.println("(Press \"Enter\" will set to \"Unknown\" automatically)");
 		String tcategory = in.nextLine();
 		
 		System.out.println("What is the value of the transaction?");
@@ -145,7 +145,7 @@ public class BoCApp {
 		if (tcategory.length() == 0 )
 		{
 			UserTransactions.add(new BoCTransaction(title, tvalue, 0));
-			System.out.println("[" + title + "]" + "(¥" + tvalue + ") " + "was added to " + "[Unknow]");
+			System.out.println( title  + "(¥" + tvalue + ") " + "was added to " + "Unknown");
 			//n = n +1 ;
 		}
 		else
@@ -155,7 +155,7 @@ public class BoCApp {
 		if(a >= 0 && a <= UserCategories.size())
 		{
 		UserTransactions.add(new BoCTransaction(title, tvalue, a));
-		System.out.println("[" + title + "]" + "(¥" + tvalue + ") " + "was added to " + "[" + UserCategories.get(a).CategoryName() + "]");
+		System.out.println( title  + "(¥" + tvalue + ") " + "was added to " +  UserCategories.get(a).CategoryName() );
 		//n = n +1;
 		}
 		//}while (n ==0);
