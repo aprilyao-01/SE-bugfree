@@ -109,7 +109,7 @@ class BoCAppTest {
 			outContent.reset();
 			
 			first.CategoryOverview();
-			assertEquals( "1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)\n"
+			assertEquals( "1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)\n"
 					    + "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)\n"
 					    + "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
 						+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
@@ -349,7 +349,7 @@ class BoCAppTest {
         
         BoCApp.main(null);
 
-	assertEquals( "1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)\n"
+	assertEquals( "1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)\n"
 			    + "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)\n"
 			    + "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
 				+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
@@ -369,12 +369,11 @@ class BoCAppTest {
 	    		+ "Which transaction ID?\n"
 				+ "	- Phone Bill - ¥37.99\n"
 				+ "Which category will it move to?\n"
-				+ "1) Unknown(¥0.00) - Est. ¥850.00 (¥-850.00 Remaining)\n"
-				+ "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\n"
-				+ "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\n"
-				+ "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\n"
-				+ "\n"
-				+"The new category it belongs to is : Unknown\n"
+				+ "1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)\n"
+				+ "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)\n"
+				+ "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
+				+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
+				+"The new category it belongs to is: Unknown\n"
 				+ "[Remove done]:\n"
 				+"1) Unknown(¥0.00) - ¥887.99 (¥-887.99 Remaining)\n"
 			    + "2) Bills(¥120.00) - ¥75.00 (¥45.00 Remaining)\n"
@@ -399,7 +398,7 @@ class BoCAppTest {
         System.setIn(in);
         
         BoCApp.main(null);
-        assertEquals( "1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)\n"
+        assertEquals( "1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)\n"
 				    + "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)\n"
 				    + "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
 					+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
@@ -408,9 +407,8 @@ class BoCAppTest {
 	        		+ " T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it\n"
 	        		+ "What is the title of the category?\n"
 	        		+ "What is the budget for this category?\n"
-	        		+ "[Category added]:\n"
-	        		+ "5) study(¥900) - ¥0.00 (¥900.00 Remaining)\n"
-	        		+ "1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)\n"
+	        		+ "[Category added]\n"
+	        		+ "1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)\n"
 				    + "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)\n"
 				    + "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
 					+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
@@ -433,7 +431,7 @@ class BoCAppTest {
         System.setIn(in);
         
         BoCApp.main(null);
-        assertEquals("1) Unknown(¥0.00) - ¥850.00 (¥-850.00 Remaining)\n"
+        assertEquals("1) Unknown(¥0.00) - ¥850.00 (¥850.00 Overspent)\n"
 			    + "2) Bills(¥120.00) - ¥112.99 (¥7.01 Remaining)\n"
 			    + "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
 				+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
