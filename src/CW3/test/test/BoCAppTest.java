@@ -167,7 +167,7 @@ class BoCAppTest {
         m.invoke(addt, in2);
         
 		assertEquals("What is the title of the transaction?" + System.lineSeparator() +      
-			         "What is the category ID of the transaction?" + System.lineSeparator() +
+			         "What is the category of the transaction?" + System.lineSeparator() +
 			         "(Press \"Enter\" will set to \"Unknown\" automatically)" + System.lineSeparator() +
 			         "What is the value of the transaction?" + System.lineSeparator() + 
 			         "abc(¥1000) was added to Unknown"+ System.lineSeparator(), outContent.toString());}
@@ -185,7 +185,7 @@ class BoCAppTest {
 	        m.invoke(addt, in2);
 	        
 			assertEquals("What is the title of the transaction?" + System.lineSeparator() + 
-				         "What is the category ID of the transaction?" + System.lineSeparator() +
+				         "What is the category of the transaction?" + System.lineSeparator() +
 				         "(Press \"Enter\" will set to \"Unknown\" automatically)" + System.lineSeparator() +
 				         "What is the value of the transaction?" + System.lineSeparator() + 
 				         "abc(¥1000) was added to Unknown"+ System.lineSeparator(), outContent.toString());}
@@ -447,9 +447,9 @@ class BoCAppTest {
         		+ "What do you want to do?\n"
         		+ " O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it\n"
         		+ ""
-        		+"Groceries:\n4) Sainsbury's Checkout(Groceries) - 楼23.76\n"
-			    + "5) Tesco's Checkout(Groceries) - 楼7.24\n"
-        		+ "8) drink(Groceries) - 楼50\n "
+        		+"Groceries:\n4) Sainsbury's Checkout(Groceries) - ¥23.76\n"
+			    + "5) Tesco's Checkout(Groceries) - ¥7.24\n"
+        		+ "8) drink(Groceries) - ¥50\n"
 			    + "\n"
         		+ "What do you want to do?\n"
         		+ " O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it\n"
