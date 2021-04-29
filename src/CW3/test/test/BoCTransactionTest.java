@@ -173,6 +173,6 @@ class BoCTransactionTest {
 	void testToString() {
 	BigDecimal value = new BigDecimal("22");
 	BoCTransaction myAnswer1 = new BoCTransaction("abc", value, 1);
-	assertEquals(myAnswer1.transactionName() + "(" + myAnswer1.transactionCategory() + ")" + " - ¥" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
+	assertEquals(myAnswer1.transactionName() + " - ¥" + myAnswer1.transactionValue().toString(),myAnswer1.toString());
 	}
 }

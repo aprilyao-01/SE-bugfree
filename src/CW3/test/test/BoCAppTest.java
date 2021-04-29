@@ -160,17 +160,17 @@ class BoCAppTest {
 		BoCApp.setup();
 		Method m = BoCApp.class.getDeclaredMethod("AddTransaction", Scanner.class);
 		m.setAccessible(true);
-		String input = System.lineSeparator() + "abc" + System.lineSeparator() + "1000" + System.lineSeparator()+ "1" + System.lineSeparator()  ;
+		String input = System.lineSeparator() + "abc" + System.lineSeparator() + "1" + System.lineSeparator()+ "1000" + System.lineSeparator()  ;
 		InputStream in = new ByteArrayInputStream(input.getBytes());
 		System.setIn(in);
 		Scanner in2 = new Scanner(System.in);
         m.invoke(addt, in2);
         
-		assertEquals("What is the title of the transaction?" + System.lineSeparator() + 
-			         "What is the value of the transaction?" + System.lineSeparator() + 
+		assertEquals("What is the title of the transaction?" + System.lineSeparator() +      
 			         "What is the category ID of the transaction?" + System.lineSeparator() +
 			         "(Press \"Enter\" will set to \"Unknow\" automatically)" + System.lineSeparator() +
-			         "[abc](¥1000) was added to [1]"+ System.lineSeparator(), outContent.toString());}
+			         "What is the value of the transaction?" + System.lineSeparator() + 
+			         "[abc](¥1000) was added to [Unknown]"+ System.lineSeparator(), outContent.toString());}
 		if(new1 ==1)
 		{
 			BoCApp addt = new BoCApp();
@@ -178,16 +178,16 @@ class BoCAppTest {
 			BoCApp.setup();
 			Method m = BoCApp.class.getDeclaredMethod("AddTransaction", Scanner.class);
 			m.setAccessible(true);
-			String input = System.lineSeparator() + "abc" + System.lineSeparator() + "1000" + System.lineSeparator()+ "" + System.lineSeparator()  ;
+			String input = System.lineSeparator() + "abc" + System.lineSeparator() + "" + System.lineSeparator()+ "1000" + System.lineSeparator()  ;
 			InputStream in = new ByteArrayInputStream(input.getBytes());
 			System.setIn(in);
 			Scanner in2 = new Scanner(System.in);
 	        m.invoke(addt, in2);
 	        
 			assertEquals("What is the title of the transaction?" + System.lineSeparator() + 
-				         "What is the value of the transaction?" + System.lineSeparator() + 
 				         "What is the category ID of the transaction?" + System.lineSeparator() +
 				         "(Press \"Enter\" will set to \"Unknow\" automatically)" + System.lineSeparator() +
+				         "What is the value of the transaction?" + System.lineSeparator() + 
 				         "[abc](¥1000) was added to [Unknow]"+ System.lineSeparator(), outContent.toString());}
 	}
 		
