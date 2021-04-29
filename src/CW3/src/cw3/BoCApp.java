@@ -103,7 +103,7 @@ public class BoCApp {
 		if(chosenCategory<1 || chosenCategory>UserCategories.size()){
 			System.out.println("Invalid index");
 		}else{
-			System.out.println(UserCategories.get(chosenCategory-1).CategoryName()+":\n");
+			System.out.println(UserCategories.get(chosenCategory-1).CategoryName()+":");
 		}
 
 		for (int x = 0; x < UserTransactions.size(); x++) {
