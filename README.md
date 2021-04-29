@@ -10,6 +10,10 @@
 - [Wangji Wei (Eagle)](contributors/WangjiWei.md)
 - [Siyu YAO (April)](contributors/SiyuYao.md)
 
+### Final Coursework3
+- [Coursework 03 - Java Project](src/CW3)
+- [Coursework 03 - Test Report](docs/CW3/CW3-TestReport.md)
+
 ### Analyses from Labs
 - [Lab 02 —— Use Case Diagram](docs/Lab02.md)
 - [Lab 03 —— Activity Diagram & Sequence Diagram](docs/Lab03.md)
