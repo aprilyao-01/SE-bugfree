@@ -148,6 +148,8 @@ public class BoCApp {
 		}while (n ==0);
 	}
 	private static void ChangeTransactionCategory(Scanner in) {
+		// modified by Siyu Yao:
+		// add confirmation after change as the class description asked
 		System.out.println("Which transaction ID?");
 		in.nextLine();
 		int tID = Integer.parseInt(in.nextLine());
