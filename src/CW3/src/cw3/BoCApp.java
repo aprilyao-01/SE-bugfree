@@ -106,6 +106,11 @@ public class BoCApp {
 	}
 
 	public static void ListTransactionsForCategory(int chosenCategory) {
+		/*
+		* Modified by: Xingyan Qu
+		* Last modified time: 21/04/29 10:44
+		* Edit: fix wrong print out format: add category name right after transaction name
+		*/
 		if(chosenCategory<1 || chosenCategory>UserCategories.size()){
 			System.out.println("Invalid index");
 		}else{
@@ -115,7 +120,7 @@ public class BoCApp {
 		for (int x = 0; x < UserTransactions.size(); x++) {
 			BoCTransaction temp = UserTransactions.get(x);
 			if (temp.transactionCategory() == chosenCategory-1) {
-				System.out.println((x + 1) + ") " + temp.toString());
+			System.out.println((x + 1) + ") " + temp.transactionName() + "(" + UserCategories.get(temp.transactionCategory()).CategoryName() + ")" + " - ¥" + temp.transactionValue().toString() );
 			}
 		}
 	}
