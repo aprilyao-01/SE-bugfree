@@ -375,7 +375,7 @@ class BoCAppTest {
 				+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
 				+"The new category it belongs to is: Unknown\n"
 				+ "[Remove done]:\n"
-				+"1) Unknown(¥0.00) - ¥887.99 (¥-887.99 Remaining)\n"
+				+"1) Unknown(¥0.00) - ¥887.99 (¥887.99 Overspent)\n"
 			    + "2) Bills(¥120.00) - ¥75.00 (¥45.00 Remaining)\n"
 			    + "3) Groceries(¥75.00) - ¥31.00 (¥44.00 Remaining)\n"
 				+ "4) Social(¥100.00) - ¥22.49 (¥77.51 Remaining)\n"
