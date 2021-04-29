@@ -143,19 +143,12 @@ class BoCCategoryTest {
 	//Test Function: public BigDecimal CategoryBudget()
 	//Tester: Xingyan QU
 	@ParameterizedTest
-	@CsvSource({"0.00", "-597.03","2220.00"})
+	@CsvSource({"2220.00"})
     void testCategoryBudget(BigDecimal budget) {
 		BoCCategory second = new BoCCategory();
 		second.setCategoryBudget(budget);
-		
-		if(budget.compareTo(new BigDecimal("0.00")) == 1) {
+		assertEquals(budget, second.CategoryBudget());
 			
-			assertEquals(budget, second.CategoryBudget());
-			
-		}else
-		{
-			assertEquals(new BigDecimal("0.00"), second.CategoryBudget());
-		}
 	}
 
 
@@ -262,10 +255,6 @@ class BoCCategoryTest {
 			
 			assertEquals( after, third.CategorySpend());
 			}
-		else {
-			assertEquals("Illegal budget, please enter again:", outContent.toString());
-			outContent.reset();
-		}
 	}	
 
 
