@@ -116,7 +116,7 @@ public class BoCTransaction {
 	@Override
 	// modified by Jiachen Zhang:
 	public String toString() {
-		return transactionName + "(" +transactionCategory + ")" + " - ¥" + transactionValue.toString();
+		return transactionName + " - ¥" + transactionValue.toString();
 	}
 
 }
