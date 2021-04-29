@@ -100,9 +100,15 @@ public class BoCApp {
 	}
 
 	public static void ListTransactionsForCategory(int chosenCategory) {
+		if(chosenCategory<1 || chosenCategory>UserCategories.size()){
+			System.out.println("Invalid index");
+		}else{
+			System.out.println(UserCategories.get(chosenCategory-1).CategoryName()+":");
+		}
+
 		for (int x = 0; x < UserTransactions.size(); x++) {
 			BoCTransaction temp = UserTransactions.get(x);
-			if (temp.transactionCategory() == chosenCategory) {
+			if (temp.transactionCategory() == chosenCategory-1) {
 				System.out.println((x + 1) + ") " + temp.toString());
 			}
 		}
@@ -142,6 +148,8 @@ public class BoCApp {
 		}while (n ==0);
 	}
 	private static void ChangeTransactionCategory(Scanner in) {
+		// modified by Siyu Yao:
+		// add confirmation after change as the class description asked
 		System.out.println("Which transaction ID?");
 		in.nextLine();
 		int tID = Integer.parseInt(in.nextLine());
